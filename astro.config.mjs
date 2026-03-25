@@ -5,7 +5,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import remarkWikilinks from './plugins/remark-wikilinks.mjs';
 
 export default defineConfig({
-  site: 'https://hongkong.md',
+  site: 'https://ourlandhk.github.io/hong-kong-md/',
   integrations: [
     sitemap({
       changefreq: 'weekly',
@@ -13,8 +13,8 @@ export default defineConfig({
       lastmod: new Date(),
       // Customize priority and changefreq for different pages
       customPages: [
-        'https://hongkong.md/?changefreq=daily&priority=1.0',
-        'https://hongkong.md/en?changefreq=daily&priority=1.0',
+        'https://ourlandhk.github.io/hong-kong-md/?changefreq=daily&priority=1.0',
+        'https://ourlandhk.github.io/hong-kong-md/en?changefreq=daily&priority=1.0',
       ],
       i18n: {
         defaultLocale: 'zh-HK',
