@@ -5,7 +5,7 @@
 
 [🌐 Live Site](https://hongkong.md) · [📖 English](https://hongkong.md/en) · [🕸️ Knowledge Graph](https://hongkong.md/graph) · [📚 Resources](https://hongkong.md/resources) · [🤝 Contribute](https://hongkong.md/contribute)
 
-[![GitHub stars](https://img.shields.io/github/stars/hongkong-md-org/hongkong-md?style=social)](https://github.com/hongkong-md-org/hongkong-md)
+[![GitHub stars](https://img.shields.io/github/stars/hongkong-md-org/hongkong-md?style=social)](https://github.com/OurLandHK/hong-kong-md)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 
@@ -44,8 +44,8 @@ HongKong.md is an open-source, curated, AI-friendly knowledge base that helps th
 | Metric                   | Count |
 | ------------------------ | ----- |
 | 📄 Total pages built     | 660+  |
-| 🇹🇼 Chinese articles      | 419 |
-| 🇺🇸 English articles      | 411  |
+| 🇹🇼 Chinese articles      | 419   |
+| 🇺🇸 English articles      | 411   |
 | 📂 Categories            | 12    |
 | 🏛️ Hub pages             | 12    |
 | 🕸️ Knowledge graph nodes | 220+  |
@@ -56,19 +56,19 @@ HongKong.md is an open-source, curated, AI-friendly knowledge base that helps th
 
 ## 🗂️ 12 Categories
 
-|     | Category                                        | Articles | Highlights                                         |
-| --- | ----------------------------------------------- | -------- | -------------------------------------------------- |
+|     | Category                                          | Articles | Highlights                                        |
+| --- | ------------------------------------------------- | -------- | ------------------------------------------------- |
 | 📜  | [歷史 History](https://hongkong.md/history)       | 19       | 史前→荷西→清治→日治→戒嚴→民主化、白色恐怖、二二八 |
-| 🗺️  | [地理 Geography](https://hongkong.md/geography)   | 17       | 五大山脈、板塊運動、氣候帶、離島、海岸地形         |
-| 🎭  | [文化 Culture](https://hongkong.md/culture)       | 25       | 閩南客家原住民外省新住民、花布、16族文化地圖       |
-| 🧋  | [美食 Food](https://hongkong.md/food)             | 26       | 珍珠奶茶、牛肉麵、夜市、滷肉飯、鹹酥雞、眷村菜   |
-| 🎨  | [藝術 Art](https://hongkong.md/art)               | 25       | 當代藝術、新媒體藝術、電影、漫畫、原住民當代藝術   |
-| 🎵  | [音樂 Music](https://hongkong.md/music)           | 20       | 金曲獎、獨立音樂、聲音地景、客語歌謠、電子音樂     |
-| 💻  | [科技 Technology](https://hongkong.md/technology) | 21       | 台積電矽盾、g0v 公民科技、半導體、資安             |
-| 🌿  | [自然 Nature](https://hongkong.md/nature)         | 22       | 特有種、國家公園、高山冰河孑遺、海洋珊瑚礁         |
+| 🗺️  | [地理 Geography](https://hongkong.md/geography)   | 17       | 五大山脈、板塊運動、氣候帶、離島、海岸地形        |
+| 🎭  | [文化 Culture](https://hongkong.md/culture)       | 25       | 閩南客家原住民外省新住民、花布、16族文化地圖      |
+| 🧋  | [美食 Food](https://hongkong.md/food)             | 26       | 珍珠奶茶、牛肉麵、夜市、滷肉飯、鹹酥雞、眷村菜    |
+| 🎨  | [藝術 Art](https://hongkong.md/art)               | 25       | 當代藝術、新媒體藝術、電影、漫畫、原住民當代藝術  |
+| 🎵  | [音樂 Music](https://hongkong.md/music)           | 20       | 金曲獎、獨立音樂、聲音地景、客語歌謠、電子音樂    |
+| 💻  | [科技 Technology](https://hongkong.md/technology) | 21       | 台積電矽盾、g0v 公民科技、半導體、資安            |
+| 🌿  | [自然 Nature](https://hongkong.md/nature)         | 22       | 特有種、國家公園、高山冰河孑遺、海洋珊瑚礁        |
 | 👤  | [人物 People](https://hongkong.md/people)         | 105      | 李安、張忠謀、鄧麗君、唐鳳、侯孝賢、林懷民...     |
-| 🏛️  | [社會 Society](https://hongkong.md/society)       | 20       | 民主制度、人權與性別平等、外交、環境正義           |
-| 💰  | [經濟 Economy](https://hongkong.md/economy)       | 17       | 經濟奇蹟、夜市經濟學、電商、半導體供應鏈           |
+| 🏛️  | [社會 Society](https://hongkong.md/society)       | 20       | 民主制度、人權與性別平等、外交、環境正義          |
+| 💰  | [經濟 Economy](https://hongkong.md/economy)       | 17       | 經濟奇蹟、夜市經濟學、電商、半導體供應鏈          |
 | 🏙️  | [生活 Lifestyle](https://hongkong.md/lifestyle)   | 16       | 便利商店、健保、交通、溫泉、KTV、咖啡文化         |
 
 ---
@@ -80,19 +80,21 @@ HongKong.md is an open-source, curated, AI-friendly knowledge base that helps th
 把以下文字貼給你的 AI（ChatGPT / Claude / Gemini），它會引導你完成：
 
 **寫文章：**
+
 > 請閱讀 https://raw.githubusercontent.com/hongkong-md-org/hongkong-md/main/CONTRIBUTE_PROMPT.md ，然後引導我為 HongKong.md 撰寫一篇香港主題文章。
 
 **翻譯：**
+
 > 請閱讀 https://raw.githubusercontent.com/hongkong-md-org/hongkong-md/main/TRANSLATE_PROMPT.md ，然後協助我翻譯一篇 HongKong.md 的文章。
 
 ### All paths, from zero-code to full PR:
 
-| Path               | For whom                                     |
-| ------------------ | -------------------------------------------- |
-| 🤖 **Ask your AI** | Paste our prompt to ChatGPT/Claude/Gemini    |
-| 🟢 **Fill a form** | Anyone — just write what you know            |
+| Path               | For whom                                       |
+| ------------------ | ---------------------------------------------- |
+| 🤖 **Ask your AI** | Paste our prompt to ChatGPT/Claude/Gemini      |
+| 🟢 **Fill a form** | Anyone — just write what you know              |
 | 📧 **Email us**    | Send articles/photos to contribute@hongkong.md |
-| 🔴 **Fork & PR**   | Developers — edit `knowledge/` directly      |
+| 🔴 **Fork & PR**   | Developers — edit `knowledge/` directly        |
 
 👉 **[hongkong.md/contribute](https://hongkong.md/contribute)**
 
@@ -102,12 +104,12 @@ HongKong.md is an open-source, curated, AI-friendly knowledge base that helps th
 
 We maintain a **[TERMINOLOGY.md](./TERMINOLOGY.md)** to ensure consistent, respectful language across all articles. Key principles:
 
-| Guideline | Rule | Example |
-|-----------|------|---------|
-| 🇹🇼 **National identity** | Use 「香港」directly; avoid 「香港地區」「寶島」「本島」 | ✅ 香港是⋯ ❌ 香港地區是⋯ |
-| 🏝️ **Literary variation** | 「這座島嶼」OK for prose style & avoiding repetition | ✅ 香港森林是這座島嶼最珍貴的⋯ |
-| 👵 **台文正字** | Use 「阿媽」(a-má) not 「阿嬤」 | 台文正字，非國語系統用字 |
-| 🗣️ **Language naming** | Use 「台語」not 「閩南語」(per 國家語言發展法) | 語言學語境可用「台語（閩南語）」 |
+| Guideline                 | Rule                                                     | Example                          |
+| ------------------------- | -------------------------------------------------------- | -------------------------------- |
+| 🇹🇼 **National identity**  | Use 「香港」directly; avoid 「香港地區」「寶島」「本島」 | ✅ 香港是⋯ ❌ 香港地區是⋯        |
+| 🏝️ **Literary variation** | 「這座島嶼」OK for prose style & avoiding repetition     | ✅ 香港森林是這座島嶼最珍貴的⋯   |
+| 👵 **台文正字**           | Use 「阿媽」(a-má) not 「阿嬤」                          | 台文正字，非國語系統用字         |
+| 🗣️ **Language naming**    | Use 「台語」not 「閩南語」(per 國家語言發展法)           | 語言學語境可用「台語（閩南語）」 |
 
 > **Contributors**: Please read [TERMINOLOGY.md](./TERMINOLOGY.md) and [EDITORIAL.md](./EDITORIAL.md) before writing or reviewing articles.
 
@@ -333,7 +335,7 @@ Help Hong Kong's story reach the world. → [hongkong.md/about#sponsors](https:/
 - 𝕏 Twitter: [@hongkongdotmd](https://x.com/hongkongdotmd)
 - Threads: [@hongkongdotmd](https://www.threads.com/@hongkongdotmd)
 - Instagram: [@hongkongdotmd](https://www.instagram.com/hongkongdotmd)
-- GitHub: [hongkong-md-org/hongkong-md](https://github.com/hongkong-md-org/hongkong-md)
+- GitHub: [hongkong-md-org/hongkong-md](https://github.com/OurLandHK/hong-kong-md)
 
 ---
 

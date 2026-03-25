@@ -74,7 +74,7 @@ export const contributeUI = {
     'contribute.roles.engineer.desc':
       'The website itself needs evolution. Performance optimization, new features, i18n, accessibility, SEO are all welcome.',
     'contribute.roles.engineer.action1.html':
-      '→ Check if there\'s anything you can solve in <a href="https://github.com/hongkong-md-org/hongkong-md/issues" target="_blank">GitHub Issues</a>',
+      '→ Check if there\'s anything you can solve in <a href="https://github.com/OurLandHK/hong-kong-md/issues" target="_blank">GitHub Issues</a>',
     'contribute.roles.engineer.action2':
       '→ Improve search, graph, multilingual features',
 
@@ -84,7 +84,7 @@ export const contributeUI = {
     'contribute.roles.translator.desc':
       'Help the world understand Hong Kong. Paste our AI prompt, translate one article, open a PR. Your AI subscription = one compute node in our distributed translation network.',
     'contribute.roles.translator.action1.html':
-      '→ See what needs translating on <a href="https://github.com/hongkong-md-org/hongkong-md/blob/main/TRANSLATION-BOARD.md">Translation Board</a>',
+      '→ See what needs translating on <a href="https://github.com/OurLandHK/hong-kong-md/blob/main/TRANSLATION-BOARD.md">Translation Board</a>',
     'contribute.roles.translator.action2':
       '→ 4 languages live (en/es/ja), 7+ more welcome — you could be the first!',
 
@@ -96,7 +96,7 @@ export const contributeUI = {
     'contribute.roles.photographer.action1':
       '→ Photograph Hong Kong through your eyes, contribute with CC license',
     'contribute.roles.photographer.action2.html':
-      '→ Record Hong Kong sounds, join the <a href="https://github.com/hongkong-md-org/hongkong-md/tree/main/assets/sounds" target="_blank">soundscape project</a>',
+      '→ Record Hong Kong sounds, join the <a href="https://github.com/OurLandHK/hong-kong-md/tree/main/assets/sounds" target="_blank">soundscape project</a>',
 
     // Role: Cultural Worker
     'contribute.roles.cultural.icon': '🏛️',
@@ -259,9 +259,9 @@ export const contributeUI = {
       'Translation is now fully systematized. Use our AI-powered workflow for best results.',
     'contribute.guides.translation.board': '📋 Translation Board + AI Prompt',
     'contribute.guides.translation.board.check':
-      '<strong>Check the board:</strong> <a href="https://github.com/hongkong-md-org/hongkong-md/blob/main/TRANSLATION-BOARD.md">TRANSLATION-BOARD.md</a> shows exactly what needs translating',
+      '<strong>Check the board:</strong> <a href="https://github.com/OurLandHK/hong-kong-md/blob/main/TRANSLATION-BOARD.md">TRANSLATION-BOARD.md</a> shows exactly what needs translating',
     'contribute.guides.translation.board.prompt':
-      '<strong>Copy the prompt:</strong> <a href="https://github.com/hongkong-md-org/hongkong-md/blob/main/TRANSLATE_PROMPT.md">TRANSLATE_PROMPT.md</a> — paste to your AI and it guides you through everything',
+      '<strong>Copy the prompt:</strong> <a href="https://github.com/OurLandHK/hong-kong-md/blob/main/TRANSLATE_PROMPT.md">TRANSLATE_PROMPT.md</a> — paste to your AI and it guides you through everything',
     'contribute.guides.translation.board.submit':
       '<strong>Submit via PR:</strong> AI helps you create PR-ready Markdown files',
     'contribute.guides.translation.languages': '🌏 Expanding Beyond English',
@@ -394,7 +394,7 @@ export const contributeUI = {
       'You know Git? Great. Just add articles directly in the <code>knowledge/</code> directory.',
     'contribute.paths.dev.guide.html': `📖 <a href="${base}en/contributing">Contributing Guidelines</a>`,
     'contribute.paths.dev.editorial.html':
-      '📝 <a href="https://github.com/hongkong-md-org/hongkong-md/blob/main/EDITORIAL.md" target="_blank">Editorial Guidelines</a>',
+      '📝 <a href="https://github.com/OurLandHK/hong-kong-md/blob/main/EDITORIAL.md" target="_blank">Editorial Guidelines</a>',
     'contribute.paths.dev.button': 'Go to GitHub →',
 
     // Form Section
@@ -507,13 +507,13 @@ export const contributeUI = {
     'contribute.token.lang.thai': '🇹🇭 ภาษาไทย',
     'contribute.token.guidelines.title': '📋 Complete Translation Guidelines',
     'contribute.token.guidelines.desc.html':
-      'Translation helper Prompt will automatically read the latest guidelines. You can also view directly: <a href="https://github.com/hongkong-md-org/hongkong-md/blob/main/TRANSLATE_PROMPT.md" target="_blank">TRANSLATE_PROMPT.md</a> | <a href="https://github.com/hongkong-md-org/hongkong-md/tree/main/i18n" target="_blank">Language-specific Style Guides</a>',
+      'Translation helper Prompt will automatically read the latest guidelines. You can also view directly: <a href="https://github.com/OurLandHK/hong-kong-md/blob/main/TRANSLATE_PROMPT.md" target="_blank">TRANSLATE_PROMPT.md</a> | <a href="https://github.com/OurLandHK/hong-kong-md/tree/main/i18n" target="_blank">Language-specific Style Guides</a>',
     'contribute.token.note.p1.html':
-      '💡 Each language has a dedicated <a href="https://github.com/hongkong-md-org/hongkong-md/tree/main/i18n">Style Guide</a>, recording translation experience and common errors. Every correction from reviewers is written back to the Style Guide, continuously improving translation quality.',
+      '💡 Each language has a dedicated <a href="https://github.com/OurLandHK/hong-kong-md/tree/main/i18n">Style Guide</a>, recording translation experience and common errors. Every correction from reviewers is written back to the Style Guide, continuously improving translation quality.',
     'contribute.token.note.p2':
       'From AI Slop to AI Supreme — not relying on one person, but on everyone worldwide who believes Hong Kong deserves to be known.',
     'contribute.token.note.p3.html':
-      '👉 <a href="https://github.com/hongkong-md-org/hongkong-md/discussions/137">Join Discussion</a> | Want to be a native reviewer? <a href="https://github.com/hongkong-md-org/hongkong-md/discussions/137">Sign up here</a>',
+      '👉 <a href="https://github.com/OurLandHK/hong-kong-md/discussions/137">Join Discussion</a> | Want to be a native reviewer? <a href="https://github.com/OurLandHK/hong-kong-md/discussions/137">Sign up here</a>',
 
     // Digital Organism Section
     'contribute.organism.title': '🧬 HongKong.md Is More Than a Website',
@@ -609,7 +609,7 @@ export const contributeUI = {
     'contribute.roles.engineer.desc':
       '網站本身也需要進化。效能優化、新功能、i18n、無障礙、SEO 都歡迎。',
     'contribute.roles.engineer.action1.html':
-      '→ 看看 <a href="https://github.com/hongkong-md-org/hongkong-md/issues" target="_blank">GitHub Issues</a> 有沒有你能解的',
+      '→ 看看 <a href="https://github.com/OurLandHK/hong-kong-md/issues" target="_blank">GitHub Issues</a> 有沒有你能解的',
     'contribute.roles.engineer.action2': '→ 改善搜尋、圖譜、多語系等功能',
 
     // Role: Translator
@@ -618,7 +618,7 @@ export const contributeUI = {
     'contribute.roles.translator.desc':
       '讓世界讀懂香港。貼一段 AI prompt，翻譯一篇文章，開一個 PR。你的 AI 訂閱 = 分散式翻譯網絡的一個運算節點。',
     'contribute.roles.translator.action1.html':
-      '→ 查看 <a href="https://github.com/hongkong-md-org/hongkong-md/blob/main/TRANSLATION-BOARD.md">翻譯任務看板</a> 認領文章',
+      '→ 查看 <a href="https://github.com/OurLandHK/hong-kong-md/blob/main/TRANSLATION-BOARD.md">翻譯任務看板</a> 認領文章',
     'contribute.roles.translator.action2':
       '→ 已有 4 語（中/英/西/日），歡迎開拓更多語言！',
 
@@ -630,7 +630,7 @@ export const contributeUI = {
     'contribute.roles.photographer.action1':
       '→ 拍下你眼中的香港，以 CC 授權貢獻',
     'contribute.roles.photographer.action2.html':
-      '→ 錄製香港的聲音，加入<a href="https://github.com/hongkong-md-org/hongkong-md/tree/main/assets/sounds" target="_blank">聲景計畫</a>',
+      '→ 錄製香港的聲音，加入<a href="https://github.com/OurLandHK/hong-kong-md/tree/main/assets/sounds" target="_blank">聲景計畫</a>',
 
     // Role: Cultural Worker
     'contribute.roles.cultural.icon': '🏛️',
@@ -786,9 +786,9 @@ export const contributeUI = {
       '翻譯已完全系統化。使用我們的AI驅動流程，效果最佳。',
     'contribute.guides.translation.board': '📋 翻譯看板 + AI Prompt',
     'contribute.guides.translation.board.check':
-      '<strong>看任務看板：</strong> <a href="https://github.com/hongkong-md-org/hongkong-md/blob/main/TRANSLATION-BOARD.md">TRANSLATION-BOARD.md</a> 精準顯示需要翻譯什麼',
+      '<strong>看任務看板：</strong> <a href="https://github.com/OurLandHK/hong-kong-md/blob/main/TRANSLATION-BOARD.md">TRANSLATION-BOARD.md</a> 精準顯示需要翻譯什麼',
     'contribute.guides.translation.board.prompt':
-      '<strong>複製prompt：</strong> <a href="https://github.com/hongkong-md-org/hongkong-md/blob/main/TRANSLATE_PROMPT.md">TRANSLATE_PROMPT.md</a> — 貼給AI就會引導你完成所有步驟',
+      '<strong>複製prompt：</strong> <a href="https://github.com/OurLandHK/hong-kong-md/blob/main/TRANSLATE_PROMPT.md">TRANSLATE_PROMPT.md</a> — 貼給AI就會引導你完成所有步驟',
     'contribute.guides.translation.board.submit':
       '<strong>透過PR提交：</strong> AI幫你產出可直接提交的Markdown檔案',
     'contribute.guides.translation.languages': '🌏 擴展到4+語言',
@@ -919,7 +919,7 @@ export const contributeUI = {
       '你會 Git？太好了。直接在 <code>knowledge/</code> 目錄新增文章。',
     'contribute.paths.dev.guide.html': `📖 <a href="${base}contributing">貢獻指南</a>`,
     'contribute.paths.dev.editorial.html':
-      '📝 <a href="https://github.com/hongkong-md-org/hongkong-md/blob/main/EDITORIAL.md" target="_blank">編輯方針</a>',
+      '📝 <a href="https://github.com/OurLandHK/hong-kong-md/blob/main/EDITORIAL.md" target="_blank">編輯方針</a>',
     'contribute.paths.dev.button': '前往 GitHub →',
 
     // Form Section
@@ -1017,13 +1017,13 @@ export const contributeUI = {
     'contribute.token.lang.thai': '🇹🇭 ภาษาไทย',
     'contribute.token.guidelines.title': '📋 完整翻譯規範',
     'contribute.token.guidelines.desc.html':
-      '翻譯助手 Prompt 會自動讀取最新規範。你也可以直接查看：<a href="https://github.com/hongkong-md-org/hongkong-md/blob/main/TRANSLATE_PROMPT.md" target="_blank">TRANSLATE_PROMPT.md</a>｜<a href="https://github.com/hongkong-md-org/hongkong-md/tree/main/i18n" target="_blank">各語言風格指南</a>',
+      '翻譯助手 Prompt 會自動讀取最新規範。你也可以直接查看：<a href="https://github.com/OurLandHK/hong-kong-md/blob/main/TRANSLATE_PROMPT.md" target="_blank">TRANSLATE_PROMPT.md</a>｜<a href="https://github.com/OurLandHK/hong-kong-md/tree/main/i18n" target="_blank">各語言風格指南</a>',
     'contribute.token.note.p1.html':
-      '💡 每個語言有專屬的 <a href="https://github.com/hongkong-md-org/hongkong-md/tree/main/i18n">Style Guide</a>，記錄翻譯經驗與常見錯誤。Reviewer 的每次糾正都會回寫到 Style Guide，讓翻譯品質持續進化。',
+      '💡 每個語言有專屬的 <a href="https://github.com/OurLandHK/hong-kong-md/tree/main/i18n">Style Guide</a>，記錄翻譯經驗與常見錯誤。Reviewer 的每次糾正都會回寫到 Style Guide，讓翻譯品質持續進化。',
     'contribute.token.note.p2':
       'From AI Slop to AI Supreme — 不只靠一個人，而是靠全世界相信香港值得被認識的人。',
     'contribute.token.note.p3.html':
-      '👉 <a href="https://github.com/hongkong-md-org/hongkong-md/discussions/137">加入討論</a> ｜想當母語 Reviewer？<a href="https://github.com/hongkong-md-org/hongkong-md/discussions/137">在這裡報名</a>',
+      '👉 <a href="https://github.com/OurLandHK/hong-kong-md/discussions/137">加入討論</a> ｜想當母語 Reviewer？<a href="https://github.com/OurLandHK/hong-kong-md/discussions/137">在這裡報名</a>',
 
     // Digital Organism Section
     'contribute.organism.title': '🧬 HongKong.md 不只是一個網站',

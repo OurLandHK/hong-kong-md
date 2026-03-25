@@ -32,7 +32,7 @@
 
 ### 不在範圍內
 
-- 純內容問題（事實錯誤請用 [Issue](https://github.com/hongkong-md-org/hongkong-md/issues/new?template=fact-correction.yml) 回報）
+- 純內容問題（事實錯誤請用 [Issue](https://github.com/OurLandHK/hong-kong-md/issues/new?template=fact-correction.yml) 回報）
 - 社交工程攻擊
 - DoS/DDoS 攻擊
 - 第三方服務（GitHub、Cloudflare 等）本身的漏洞

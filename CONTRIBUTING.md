@@ -509,7 +509,7 @@ HongKong.md 採用**漸進式信任**的模式。每個人都從 Contributor 開
 
 **現任 Core Team：**
 
-- **吳哲宇 (@hongkong-md-org)** — 創辦人
+- **Nobody (@https://github.com/OurLandHK/hong-kong-md/)** — 創辦人
 
 ---
 

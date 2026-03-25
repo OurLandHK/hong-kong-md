@@ -24,7 +24,7 @@ ROCKET="🚀"
 MAGIC="✨"
 
 # GitHub repo URL
-REPO_URL="https://github.com/hongkong-md-org/hongkong-md"
+REPO_URL="https://github.com/OurLandHK/hong-kong-md"
 
 # Function to print colored messages
 print_info() {

@@ -5,6 +5,7 @@
 每次翻譯產出 → reviewer 糾正 → 錯誤回寫到 STYLE.md → 下次翻譯自動避開。越翻越聰明，每個語言獨立進化。
 
 翻譯時請同時參考：
+
 - **[EDITORIAL.md](../EDITORIAL.md)** — 全站品質標準（適用所有語言）
 - **`i18n/{lang}/STYLE.md`** — 該語言的累積經驗與特殊規則
 
@@ -46,4 +47,4 @@ STYLE.md 是活的文件，會隨著翻譯量增加而越來越精確。
 
 ## Token Donation 翻譯流程
 
-詳見 [Discussion #137](https://github.com/hongkong-md-org/hongkong-md/discussions/137)
+詳見 [Discussion #137](https://github.com/OurLandHK/hong-kong-md/discussions/137)

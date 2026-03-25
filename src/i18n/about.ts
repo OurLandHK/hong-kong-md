@@ -247,7 +247,7 @@ export const aboutUI = {
     'about.team.contributors.title': '👥 Contributors',
     'about.team.contributors.desc':
       'Thank you to everyone who makes HongKong.md better. 💻 Code 📝 Content 🎨 Design 💡 Ideas 🌍 Translation 👀 Reviews 🐛 Bug 🔧 Tools 🔒 Security',
-    'about.team.contributors.cta.html': `Want to join? <a href="${base}en/contribute">Start here →</a> ・ <a href="https://github.com/hongkong-md-org/hongkong-md/graphs/contributors" target="_blank">GitHub Contributors →</a>`,
+    'about.team.contributors.cta.html': `Want to join? <a href="${base}en/contribute">Start here →</a> ・ <a href="https://github.com/OurLandHK/hong-kong-md/graphs/contributors" target="_blank">GitHub Contributors →</a>`,
 
     // Section 4: Contact
     'about.contact.title': 'Contact Us',
@@ -547,7 +547,7 @@ export const aboutUI = {
     'about.team.contributors.title': '👥 貢獻者',
     'about.team.contributors.desc':
       '感謝每一位讓 HongKong.md 更好的人。💻 程式 📝 內容 🎨 設計 💡 點子 🌍 翻譯 👀 審核 🐛 Bug 🔧 工具 🔒 安全',
-    'about.team.contributors.cta.html': `想加入嗎？<a href="${base}contribute">從這裡開始 →</a> ・ <a href="https://github.com/hongkong-md-org/hongkong-md/graphs/contributors" target="_blank">GitHub Contributors →</a>`,
+    'about.team.contributors.cta.html': `想加入嗎？<a href="${base}contribute">從這裡開始 →</a> ・ <a href="https://github.com/OurLandHK/hong-kong-md/graphs/contributors" target="_blank">GitHub Contributors →</a>`,
 
     // Section 4: Contact
     'about.contact.title': '聯繫我們',

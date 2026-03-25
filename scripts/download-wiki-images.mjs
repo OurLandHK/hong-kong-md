@@ -11,7 +11,7 @@ import { join } from 'path';
 const DEST_DIR = 'public/images/wiki';
 const MAX_WIDTH = 1024;
 const USER_AGENT =
-  'hongkong-md-bot/1.0 (https://github.com/hongkong-md-org/hongkong-md; open-source project)';
+  'hongkong-md-bot/1.0 (https://github.com/OurLandHK/hong-kong-md; open-source project)';
 
 // Hash filename → Wikimedia Commons File: title
 const IMAGE_MAP = [
