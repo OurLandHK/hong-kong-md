@@ -232,7 +232,7 @@ const otherCategories = categories
     <div class="container">
       <!-- Breadcrumb -->
       <nav class="breadcrumb">
-        <a href="/" class="breadcrumb-link">首頁</a>
+        <a href={import.meta.env.BASE_URL} class="breadcrumb-link">首頁</a>
         <span class="separator">›</span>
         <span class="current">{categoryInfo.name}</span>
       </nav>
@@ -452,7 +452,7 @@ const otherCategories = categories
               </p>
 
               <div class="action-buttons">
-                <a href="/" class="btn-primary">
+                <a href={import.meta.env.BASE_URL} class="btn-primary">
                   返回首頁
                 </a>
                 <a
@@ -1722,7 +1722,11 @@ const otherCategories = categories
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // 只有 food 分類才執行
-    const currentCategory = window.location.pathname.split('/')[1];
+    const _base = import.meta.env.BASE_URL.replace(/\/$/, '');
+    const _pathname = window.location.pathname.startsWith(_base)
+      ? window.location.pathname.slice(_base.length)
+      : window.location.pathname;
+    const currentCategory = _pathname.split('/')[1];
     if (currentCategory !== 'food') return;
 
     // 食物數據
@@ -2158,7 +2162,7 @@ const otherCategories = categories
       })
       .on('click', function(event, d) {
         if (d.url) {
-          window.location.href = d.url;
+          window.location.href = _base + d.url;
         }
       });
 
