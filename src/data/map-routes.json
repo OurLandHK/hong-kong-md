@@ -1,0 +1,46 @@
+[
+  {
+    "id": "harbour-walk",
+    "title": "維港漫步",
+    "title_en": "Victoria Harbour Walk",
+    "stops": [
+      { "name": "天星碼頭", "name_en": "Star Ferry Pier", "lat": 22.2935, "lng": 114.1684, "note": "百年渡輪" },
+      { "name": "尖沙咀海濱", "name_en": "Tsim Sha Tsui Promenade", "lat": 22.2933, "lng": 114.1725, "note": "星光大道" },
+      { "name": "西九文化區", "name_en": "West Kowloon Cultural District", "lat": 22.3021, "lng": 114.1604, "note": "M+ 博物館" },
+      { "name": "中環碼頭", "name_en": "Central Pier", "lat": 22.288, "lng": 114.160, "note": "摩天輪" }
+    ]
+  },
+  {
+    "id": "hiking-trail",
+    "title": "香港行山路線",
+    "title_en": "Hong Kong Hiking Trails",
+    "stops": [
+      { "name": "龍脊", "name_en": "Dragon's Back", "lat": 22.239, "lng": 114.232, "note": "亞洲最佳市區行山徑" },
+      { "name": "獅子山", "name_en": "Lion Rock", "lat": 22.352, "lng": 114.184, "note": "香港精神象徵" },
+      { "name": "大帽山", "name_en": "Tai Mo Shan", "lat": 22.411, "lng": 114.124, "note": "香港最高峰" },
+      { "name": "鳳凰山", "name_en": "Lantau Peak", "lat": 22.256, "lng": 113.957, "note": "觀日出聖地" }
+    ]
+  },
+  {
+    "id": "street-food",
+    "title": "街頭美食之旅",
+    "title_en": "Street Food Tour",
+    "stops": [
+      { "name": "廟街", "name_en": "Temple Street", "lat": 22.308, "lng": 114.170, "note": "夜市煲仔飯" },
+      { "name": "深水埗", "name_en": "Sham Shui Po", "lat": 22.330, "lng": 114.160, "note": "腸粉、豆花" },
+      { "name": "旺角", "name_en": "Mong Kok", "lat": 22.319, "lng": 114.170, "note": "雞蛋仔、魚蛋" },
+      { "name": "銅鑼灣", "name_en": "Causeway Bay", "lat": 22.280, "lng": 114.185, "note": "茶餐廳密度最高" }
+    ]
+  },
+  {
+    "id": "heritage-trail",
+    "title": "歷史文化徑",
+    "title_en": "Heritage Trail",
+    "stops": [
+      { "name": "文武廟", "name_en": "Man Mo Temple", "lat": 22.284, "lng": 114.150, "note": "1847年建成" },
+      { "name": "大館", "name_en": "Tai Kwun", "lat": 22.281, "lng": 114.154, "note": "前中區警署活化" },
+      { "name": "PMQ 元創方", "name_en": "PMQ", "lat": 22.283, "lng": 114.151, "note": "前已婚警察宿舍" },
+      { "name": "大澳", "name_en": "Tai O", "lat": 22.252, "lng": 113.862, "note": "水上棚屋漁村" }
+    ]
+  }
+]

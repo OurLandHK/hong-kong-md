@@ -1,0 +1,13 @@
+{
+  "label": "恒生指數年度收市 (1969–2025)",
+  "source": "Hong Kong Exchanges and Clearing",
+  "data": [
+    { "year": 1969, "close": 158, "note": "恒生指數正式發布" },
+    { "year": 1973, "close": 1775, "note": "股市泡沫高峰" },
+    { "year": 1987, "close": 2303, "note": "全球股災" },
+    { "year": 1997, "close": 10723, "note": "回歸年" },
+    { "year": 2007, "close": 27813, "note": "歷史新高" },
+    { "year": 2020, "close": 27231, "note": "疫情衝擊" },
+    { "year": 2025, "close": 0, "note": "待更新" }
+  ]
+}

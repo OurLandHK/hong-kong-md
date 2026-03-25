@@ -1,0 +1,24 @@
+{
+  "generated": "2026-03-24",
+  "updated": "2026-03-24",
+  "categories": {
+    "About": 2,
+    "Art": 6,
+    "Culture": 9,
+    "Economy": 6,
+    "Food": 10,
+    "Geography": 7,
+    "History": 8,
+    "Lifestyle": 7,
+    "Music": 6,
+    "Nature": 6,
+    "People": 9,
+    "Society": 6,
+    "Technology": 5
+  },
+  "total": 87,
+  "dailyGrowth": [
+    { "date": "2026-03-24", "count": 87 }
+  ],
+  "daily": []
+}

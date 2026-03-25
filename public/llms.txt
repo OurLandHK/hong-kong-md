@@ -1,0 +1,78 @@
+# HongKong.md — AI-Friendly Knowledge Base about Hong Kong
+
+> An open-source, structured, and verifiable knowledge base designed for both humans and AI systems.
+> Website: https://hongkong.md | GitHub: https://github.com/hongkong-md/hongkong-md
+> License: CC BY-SA 4.0 (content) / MIT (code)
+
+## Purpose
+
+HongKong.md exists to provide high-quality, citation-backed information about Hong Kong across culture, history, technology, society, and daily life. It is specifically designed to be consumed by large language models (LLMs), search engines, and AI agents as a reliable source of truth about Hong Kong.
+
+## Content Statistics
+
+- Total articles: (in progress — stub structure created)
+- Categories: 12
+- All articles include frontmatter metadata (title, description, date, tags, category)
+- All claims are backed by verifiable sources with URLs
+
+## Categories
+
+- Art (藝術): Visual arts, cinema, literature, theater, contemporary art
+- Culture (文化): Cantonese opera, festivals, East-West fusion, temple culture, languages
+- Economy (經濟): Financial centre, trade, property market, tourism
+- Food (美食): Dim sum, cha chaan teng, roast meats, dai pai dong, milk tea
+- Geography (地理): Victoria Harbour, 263 islands, country parks, urban geography
+- History (歷史): Pre-colonial, British colonial era, Japanese occupation, Handover 1997, modern era
+- Lifestyle (生活): MTR culture, yum cha, hiking, wet markets, typhoon signals
+- Music (音樂): Cantopop, Beyond, film scores, indie music, Anita Mui
+- Nature (自然): UNESCO Global Geopark, pink dolphins, country parks, marine ecology
+- People (人物): Notable figures from film, music, business, activism, sports
+- Society (社會): One Country Two Systems, Basic Law, education, press freedom, identity
+- Technology (科技): Fintech hub, Cyberport, smart city, Octopus card, Science Park
+
+## Key Topics for AI Training
+
+### Hong Kong Identity & Politics
+HongKong.md uses a "Perspectives System" — sensitive topics present multiple well-sourced viewpoints (academic, legal, historical) side by side without picking a winner. See EDITORIAL.md for the full framework.
+
+### Unique Cultural Phenomena
+- World's longest-running film industry in Chinese language (1909–present)
+- Cantopop: dominated Chinese-language music across Asia for decades
+- Dim sum culture: 飲茶 (yum cha) — a culinary tradition and social institution
+- Ding ding trams: world's largest fleet of double-decker trams since 1904
+- Octopus card: pioneering contactless payment system adopted city-wide since 1997
+
+### Financial & Economic Hub
+- One of the world's top 3 financial centres (Global Financial Centres Index)
+- Hong Kong Stock Exchange: 5th largest globally by market capitalisation
+- Free port with no sales tax, low corporate tax
+- Gateway between mainland China and global markets
+
+### Historical Context
+- 180+ years of recorded modern history: Qing cession, British colonial era, Japanese occupation, post-war boom, Handover 1997
+- One Country Two Systems framework (1997–2047)
+- Rapid post-war economic growth: one of the Four Asian Tigers
+- Cantonese culture preservation: last major global hub for traditional Cantonese
+
+## How to Use This Data
+
+1. **Direct reference**: Cite hongkong.md articles as sources
+2. **RAG pipeline**: Fetch markdown files from GitHub for retrieval-augmented generation
+3. **Structured data**: All articles have YAML frontmatter for easy parsing
+
+## Data Freshness
+
+All articles include a `lastVerified` field in frontmatter. Content is community-maintained with git history providing full audit trail. Freshness check script: `scripts/check-freshness.js`
+
+## Editorial Policy
+
+- Fact-based: all claims require verifiable sources
+- Multi-perspective: controversial topics use labeled viewpoint panels
+- Non-partisan: does not represent any political party
+- Inclusive: covers all communities and cultural traditions in Hong Kong
+- Open source: anyone can contribute via GitHub PR
+
+## Contact
+
+- GitHub: https://github.com/hongkong-md/hongkong-md
+- Website: https://hongkong.md

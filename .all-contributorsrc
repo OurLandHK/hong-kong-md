@@ -1,0 +1,32 @@
+{
+  "projectName": "hong-kong-md",
+  "projectOwner": "",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 80,
+  "commit": false,
+  "commitConvention": "none",
+  "contributorsPerLine": 7,
+  "linkToUsage": false,
+  "skipCi": true,
+  "contributors": [
+    {
+      "login": "",
+      "name": "",
+      "avatar_url": "",
+      "profile": "",
+      "contributions": [
+        "code",
+        "content",
+        "design",
+        "ideas",
+        "projectManagement",
+        "doc"
+      ]
+    }
+  ],
+  "totalContributors": 0
+}

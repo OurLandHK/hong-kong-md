@@ -1,0 +1,282 @@
+import type { Lang } from '../types';
+
+export type Locale = Lang;
+import { homeUI } from './home';
+import { aboutUI } from './about';
+import { dataUI } from './data';
+import { contributeUI } from './contribute';
+import { changelogUI } from './changelog';
+import { resourcesUI } from './resources';
+
+export const languages: Record<Lang, string> = {
+  en: 'English',
+  'zh-HK': '中文',
+};
+
+export const defaultLang: Lang = 'zh-HK';
+export const showDefaultLang = false;
+
+export const ui = {
+  en: {
+    ...homeUI.en,
+    ...aboutUI.en,
+    ...dataUI.en,
+    ...contributeUI.en,
+    ...changelogUI.en,
+    ...resourcesUI.en,
+    'nav.aria-home': 'HongKong.md Home',
+    'nav.aria-img-label': 'HongKong.md logo',
+    'nav.aria-toggle-menu': 'Toggle navigation menu',
+    'nav.aria-main-navigation': 'Main navigation',
+    'nav.aria-mobile-navigation': 'Mobile navigation',
+    'nav.aria-search': 'Search',
+    'nav.aria-language-selection': 'Language selection',
+    'nav.aria-switch-to-zh-hk': 'Switch to Traditional Chinese',
+    'nav.aria-switch-to-en': 'Switch to English',
+    'nav.home': 'Home',
+    'nav.about': 'About',
+    'nav.twitter': 'Twitter',
+    'nav.explore': '🕸️ Knowledge Graph',
+    'nav.graph': '🕸️ Graph',
+    'nav.graph-view': 'Knowledge Graph',
+    'nav.map': '📍 Geographic Hong Kong',
+    'nav.contribute': '✋ Contribute',
+    'nav.resources': '🔗 Resources',
+    'nav.data': '📊 Data Hong Kong',
+    'nav.soundscape': '🎧 Soundscape',
+    'nav.assets': 'SVG Assets',
+    'nav.projects': 'Projects',
+    'nav.language-switch': 'Language',
+    'nav.search-modal.input-placeholder': 'Search articles',
+    'nav.search-modal.type-to-search': 'Type to search across all articles',
+    'footer.explore': 'Explore',
+    'footer.history': 'History',
+    'footer.culture': 'Culture',
+    'footer.food': 'Food',
+    'footer.technology': 'Technology',
+    'footer.nature': 'Nature',
+    'footer.society': 'Society',
+    'footer.project': 'Project',
+    'footer.about': 'About',
+    'footer.graph': 'Knowledge Graph',
+    'footer.contribute': 'Contribute Guide',
+    'footer.changelog': 'Update History',
+    'footer.contact': 'Connect',
+    'footer.report': 'Report Issue',
+    'footer.discuss': 'Discussions',
+    'footer.desc': 'Open-source, AI-friendly knowledge base about Hong Kong',
+    'footer.support-us': 'Support us',
+    'footer.font-sponsor-prefix': 'Web fonts sponsored by',
+    'footer.font-sponsor-suffix': ' ',
+    'categoryConfig.history': 'History',
+    'categoryConfig.geography': 'Geography',
+    'categoryConfig.culture': 'Culture',
+    'categoryConfig.food': 'Food',
+    'categoryConfig.art': 'Art',
+    'categoryConfig.music': 'Music',
+    'categoryConfig.technology': 'Technology',
+    'categoryConfig.nature': 'Nature',
+    'categoryConfig.people': 'People',
+    'categoryConfig.society': 'Society',
+    'categoryConfig.economy': 'Economy',
+    'categoryConfig.lifestyle': 'Lifestyle',
+    'categoryConfig.history.description':
+      "The complete timeline of Hong Kong's history from pre-colonial times to the present",
+    'categoryConfig.geography.description':
+      "Hong Kong's natural environment, harbour, islands, and urban landscape",
+    'categoryConfig.culture.description':
+      'The fusion of East and West, Cantonese traditions, and local characteristics',
+    'categoryConfig.food.description':
+      'Culinary culture from dim sum to cha chaan teng to fine dining',
+    'categoryConfig.art.description':
+      'Creative energy from Cantonese opera to contemporary art and cinema',
+    'categoryConfig.music.description':
+      'The soundscape from Cantopop to indie music and film scores',
+    'categoryConfig.technology.description':
+      'Fintech innovation, smart city development, and digital transformation',
+    'categoryConfig.nature.description':
+      'Country parks, geopark, marine ecology, and environmental issues',
+    'categoryConfig.people.description':
+      "Important figures and stories that shaped Hong Kong's development",
+    'categoryConfig.society.description':
+      'In-depth exploration of social changes and contemporary issues',
+    'categoryConfig.economy.description':
+      'Financial centre origins, trade hub, and economic transformation',
+    'categoryConfig.lifestyle.description':
+      'Lifestyle and values of Hong Kong people',
+    // Article page
+    'article.toc': 'Table of Contents',
+    'article.sources': 'Sources',
+    'article.furtherReading': 'Further Reading',
+    'article.moreInCategory': 'More in this category',
+    'article.moreAspects': 'More aspects of Hong Kong',
+    'article.backToCategory': 'Back to category',
+    'article.backToHome': 'Back to home',
+    'article.home': 'Home',
+    'article.share': 'Share',
+    'article.shareLabel': 'Share this article',
+    'article.copyLink': 'Copy link',
+    'article.copied': 'Copied!',
+    'article.editPage': 'Edit this page',
+    'article.reportIssue': 'Report an issue',
+    'article.randomExplore': 'Random article',
+    'article.exploreHK': 'Explore Hong Kong',
+    'article.startExplore': 'Start exploring',
+    'article.viewAll': 'View all',
+    'article.articles': 'articles',
+    'article.langLabel': 'Language',
+    'article.disclaimer.title': 'About this article',
+    'article.disclaimer.body':
+      'This article was collaboratively written with AI assistance and community review.',
+    'article.tts.play': 'Listen',
+    'article.tts.stop': 'Stop',
+    'CategoryGrid.article': 'article',
+    'CategoryGrid.articles': 'articles',
+    'CategoryGrid.explore': 'explore',
+    'CategoryGrid.aria-section': 'Hong Kong knowledge categories',
+    'CategoryGrid.aria-explore': 'Explore',
+    'CategoryGrid.aria-explore-suffix': ' ',
+    'CategoryGrid.alt-category-image-suffix': 'category image',
+  },
+  'zh-HK': {
+    ...homeUI['zh-HK'],
+    ...aboutUI['zh-HK'],
+    ...dataUI['zh-HK'],
+    ...contributeUI['zh-HK'],
+    ...changelogUI['zh-HK'],
+    ...resourcesUI['zh-HK'],
+    'nav.aria-home': 'HongKong.md 首頁',
+    'nav.aria-img-label': 'HongKong.md 標誌圖示',
+    'nav.aria-toggle-menu': '開啟/關閉導航選單',
+    'nav.aria-main-navigation': '主要導航',
+    'nav.aria-mobile-navigation': '行動裝置導航',
+    'nav.aria-search': '搜尋',
+    'nav.aria-language-selection': '語言選擇',
+    'nav.aria-switch-to-zh-hk': '切換至繁體中文',
+    'nav.aria-switch-to-en': '切換至英文',
+    'nav.home': '首頁',
+    'nav.about': '關於',
+    'nav.twitter': '推特',
+    'nav.explore': '🕸️ 知識圖譜',
+    'nav.graph': '🕸️ 圖譜',
+    'nav.graph-view': '知識圖譜',
+    'nav.map': '📍 地理',
+    'nav.contribute': '✋ 參與專案',
+    'nav.resources': '🔗 延伸資源',
+    'nav.data': '📊 數據香港',
+    'nav.soundscape': '🎧 聲景',
+    'nav.assets': 'SVG 素材',
+    'nav.projects': '專案',
+    'nav.language-switch': '語言 / Language',
+    'nav.search-modal.input-placeholder': '搜尋文章',
+    'nav.search-modal.type-to-search': '輸入關鍵字搜尋所有文章',
+    'footer.explore': '探索',
+    'footer.history': '歷史',
+    'footer.culture': '文化',
+    'footer.food': '美食',
+    'footer.technology': '科技',
+    'footer.nature': '自然',
+    'footer.society': '社會',
+    'footer.project': '專案',
+    'footer.about': '關於',
+    'footer.graph': '知識圖譜',
+    'footer.contribute': '貢獻指南',
+    'footer.changelog': '更新紀錄',
+    'footer.contact': '聯繫',
+    'footer.report': '回報問題',
+    'footer.discuss': '討論區',
+    'footer.desc': '開源、AI-friendly 的香港知識庫',
+    'footer.support-us': '支持我們',
+    'footer.font-sponsor-prefix': '字體由',
+    'footer.font-sponsor-suffix': '提供',
+    'categoryConfig.history': '歷史',
+    'categoryConfig.geography': '地理',
+    'categoryConfig.culture': '文化',
+    'categoryConfig.food': '美食',
+    'categoryConfig.art': '藝術',
+    'categoryConfig.music': '音樂',
+    'categoryConfig.technology': '科技',
+    'categoryConfig.nature': '自然',
+    'categoryConfig.people': '人物',
+    'categoryConfig.society': '社會',
+    'categoryConfig.economy': '經濟',
+    'categoryConfig.lifestyle': '生活',
+    'categoryConfig.history.description':
+      '從開埠前時代到現代，香港歷史的完整脈絡',
+    'categoryConfig.geography.description':
+      '香港的自然環境、海港島嶼與城市地景',
+    'categoryConfig.culture.description': '中西文化交匯與廣東傳統特色',
+    'categoryConfig.food.description': '從飲茶點心到茶餐廳的美食文化',
+    'categoryConfig.art.description': '從粵劇到當代藝術與電影的創作能量',
+    'categoryConfig.music.description': '從廣東歌到獨立音樂的聲音風景',
+    'categoryConfig.technology.description': '金融科技創新與智慧城市發展',
+    'categoryConfig.nature.description': '郊野公園、地質公園與生態環境',
+    'categoryConfig.people.description': '影響香港發展的重要人物與故事',
+    'categoryConfig.society.description': '社會變遷與當代議題的深度探討',
+    'categoryConfig.economy.description': '金融中心的成因與經濟轉型挑戰',
+    'categoryConfig.lifestyle.description': '香港人的生活方式與價值觀',
+    // Article page
+    'article.toc': '目錄',
+    'article.sources': '參考資料',
+    'article.furtherReading': '延伸閱讀',
+    'article.moreInCategory': '同分類更多文章',
+    'article.moreAspects': '更多香港面向',
+    'article.backToCategory': '回到分類',
+    'article.backToHome': '回到首頁',
+    'article.home': '首頁',
+    'article.share': '分享',
+    'article.shareLabel': '分享這篇文章',
+    'article.copyLink': '複製連結',
+    'article.copied': '已複製！',
+    'article.editPage': '編輯此頁',
+    'article.reportIssue': '回報問題',
+    'article.randomExplore': '隨機文章',
+    'article.exploreHK': '探索香港',
+    'article.startExplore': '開始探索',
+    'article.viewAll': '查看全部',
+    'article.articles': '篇文章',
+    'article.langLabel': '語言',
+    'article.disclaimer.title': '關於此文章',
+    'article.disclaimer.body': '本文章由社群協作，並經 AI 輔助撰寫與審查。',
+    'article.tts.play': '朗讀',
+    'article.tts.stop': '停止',
+    'CategoryGrid.article': '篇',
+    'CategoryGrid.articles': '篇',
+    'CategoryGrid.explore': '探索',
+    'CategoryGrid.aria-section': '香港知識分類',
+    'CategoryGrid.aria-explore': '探索',
+    'CategoryGrid.aria-explore-suffix': '主題',
+    'CategoryGrid.alt-category-image-suffix': '主題相關圖片',
+  },
+} as const;
+
+// ── Helper utilities ──────────────────────────────────────────────────────────
+
+export function getLangPrefix(lang: Lang): string {
+  if (lang === 'zh-HK') return '';
+  return `/${lang}`;
+}
+
+export function getLocaleFromPath(path: string): Lang {
+  if (path.startsWith('/en')) return 'en';
+  if (path.startsWith('/es')) return 'es';
+  return 'zh-HK';
+}
+
+export function getActiveLocales(): Lang[] {
+  return ['zh-HK', 'en'];
+}
+
+export function t(key: string, lang: Lang = defaultLang): string {
+  const localeStrings = ui[lang] as Record<string, string> | undefined;
+  if (localeStrings && key in localeStrings) {
+    return localeStrings[key];
+  }
+  if (lang !== 'en' && key in ui.en) {
+    return ui.en[key as keyof typeof ui.en];
+  }
+  if (key in ui['zh-HK']) {
+    return ui['zh-HK'][key as keyof (typeof ui)['zh-HK']];
+  }
+  return key;
+}

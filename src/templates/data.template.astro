@@ -1,0 +1,3093 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import {
+  getCompanyConfigs,
+  getCategories,
+  sectorColors,
+} from '../utils/dataConfig';
+import contentStats from '../data/content-stats.json';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Get companies from centralized config
+const companies = getCompanyConfigs(t);
+
+const sectors = [...new Set(companies.map((c) => c.sector))];
+
+// Get categories from centralized config
+const dataCategories = getCategories(t);
+---
+
+<Layout title={t('data.meta.title')} description={t('data.meta.description')}>
+  <main class="data-hub">
+    <!-- Hero -->
+    <section class="hero">
+      <h1 class="hero-title">
+        <span class="hero-emoji">📊</span>
+        {t('data.hero.title')}
+      </h1>
+      <p class="hero-subtitle">{t('data.hero.subtitle')}</p>
+      <p class="hero-desc">{t('data.hero.description')}</p>
+    </section>
+
+    <!-- Hong Kong vs World Infographic Section -->
+    <section class="hk-vs-world-section" id="global">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="story-intro">
+        <h2 class="section-title">{t('data.hkVsWorld.title')}</h2>
+        <div class="story-text">
+          <p>{t('data.hkVsWorld.story.p1')}</p>
+          <p>{t('data.hkVsWorld.story.p2')}</p>
+        </div>
+      </div>
+
+      <div class="comparison-cards">
+        <div class="comparison-card">
+          <div class="card-emoji">📏</div>
+          <div class="card-number">{t('data.hkVsWorld.area.number')}</div>
+          <div class="card-label">{t('data.hkVsWorld.area.label')}</div>
+          <div class="card-context">{t('data.hkVsWorld.area.context')}</div>
+        </div>
+
+        <div class="comparison-card">
+          <div class="card-emoji">💰</div>
+          <div class="card-number">{t('data.hkVsWorld.gdp.number')}</div>
+          <div class="card-label">{t('data.hkVsWorld.gdp.label')}</div>
+          <div class="card-context">{t('data.hkVsWorld.gdp.context')}</div>
+        </div>
+
+        <div class="comparison-card">
+          <div class="card-emoji">🏭</div>
+          <div class="card-number">
+            {t('data.hkVsWorld.semiconductor.number')}
+          </div>
+          <div class="card-label">
+            {t('data.hkVsWorld.semiconductor.label')}
+          </div>
+          <div class="card-context">
+            {t('data.hkVsWorld.semiconductor.context')}
+          </div>
+        </div>
+
+        <div class="comparison-card">
+          <div class="card-emoji">🗳️</div>
+          <div class="card-number">
+            {t('data.hkVsWorld.democracy.number')}
+          </div>
+          <div class="card-label">
+            {t('data.hkVsWorld.democracy.label')}
+          </div>
+          <div class="card-context">
+            {t('data.hkVsWorld.democracy.context')}
+          </div>
+        </div>
+
+        <div class="comparison-card">
+          <div class="card-emoji">👶</div>
+          <div class="card-number">
+            {t('data.hkVsWorld.birthRate.number')}
+          </div>
+          <div class="card-label">
+            {t('data.hkVsWorld.birthRate.label')}
+          </div>
+          <div class="card-context">
+            {t('data.hkVsWorld.birthRate.context')}
+          </div>
+        </div>
+
+        <div class="comparison-card">
+          <div class="card-emoji">🏪</div>
+          <div class="card-number">
+            {t('data.hkVsWorld.convenience.number')}
+          </div>
+          <div class="card-label">
+            {t('data.hkVsWorld.convenience.label')}
+          </div>
+          <div class="card-context">
+            {t('data.hkVsWorld.convenience.context')}
+          </div>
+        </div>
+
+        <div class="comparison-card">
+          <div class="card-emoji">🚄</div>
+          <div class="card-number">{t('data.hkVsWorld.hsr.number')}</div>
+          <div class="card-label">{t('data.hkVsWorld.hsr.label')}</div>
+          <div class="card-context">{t('data.hkVsWorld.hsr.context')}</div>
+        </div>
+
+        <div class="comparison-card">
+          <div class="card-emoji">🏥</div>
+          <div class="card-number">
+            {t('data.hkVsWorld.healthcare.number')}
+          </div>
+          <div class="card-label">
+            {t('data.hkVsWorld.healthcare.label')}
+          </div>
+          <div class="card-context">
+            {t('data.hkVsWorld.healthcare.context')}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Analytics Section -->
+    <section class="content-analytics-section" id="analytics">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="story-intro">
+        <h2 class="section-title">📈 內容成長分析</h2>
+        <div class="story-text">
+          <p>
+            HongKong.md 的成長軌跡見證了開源知識庫的力量。從零開始到現在涵蓋 {
+              Object.values(contentStats.categories).reduce(
+                (sum, count) => sum + count,
+                0,
+              )
+            } 篇文章，每一篇都代表著香港故事的一部分。
+          </p>
+          <p>
+            這些數據不只是數字，而是全球貢獻者對香港認識的渴望，以及我們用知識連結世界的使命。
+          </p>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>分類分布</h3>
+          <p class="chart-desc">各領域文章數量分布，反映香港知識的多元面貌</p>
+          <div class="chart-wrapper">
+            <canvas id="categoryChart" width="400" height="300"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <h3>內容成長軌跡</h3>
+          <p class="chart-desc">每日新增文章數量，見證知識庫的擴張歷程</p>
+          <div class="chart-wrapper">
+            <canvas id="growthChart" width="400" height="300"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Summary -->
+      <div class="stats-summary">
+        <div class="stat-item">
+          <div class="stat-number">
+            {
+              Object.values(contentStats.categories).reduce(
+                (sum, count) => sum + count,
+                0,
+              )
+            }
+          </div>
+          <div class="stat-label">篇文章</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">
+            {Object.keys(contentStats.categories).length}
+          </div>
+          <div class="stat-label">個分類</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">
+            {contentStats.dailyGrowth.reduce((sum, day) => sum + day.count, 0)}
+          </div>
+          <div class="stat-label">次貢獻</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">{contentStats.updated}</div>
+          <div class="stat-label">最後更新</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Population Pyramid Section -->
+    <section class="population-section" id="population">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="story-intro">
+        <h2 class="section-title">{t('data.population.title')}</h2>
+        <div class="story-text">
+          <p>{t('data.population.story.p1')}</p>
+          <p>{t('data.population.story.p2')}</p>
+        </div>
+      </div>
+
+      <!-- Population Pyramid Chart -->
+      <div class="pyramid-container">
+        <div id="population-pyramid"></div>
+
+        <!-- Year Slider -->
+        <div class="year-slider-container">
+          <div class="slider-track">
+            <div class="slider-thumb" id="yearThumb"></div>
+          </div>
+          <div class="year-labels">
+            <span>2000</span>
+            <span>2010</span>
+            <span>2025</span>
+            <span>2050</span>
+          </div>
+          <div class="current-year" id="currentYear">2025</div>
+        </div>
+      </div>
+
+      <!-- Key Insights Cards (dynamic, syncs with slider) -->
+      <div class="insights">
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-label" id="insightLabel1">
+              {t('data.population.insights.card1.title')}
+            </div>
+            <div class="insight-number" id="insightValue1">43</div>
+            <div class="insight-detail" id="insightUnit1">
+              {t('data.population.insights.card1.subtitle')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-label" id="insightLabel2">
+              {t('data.population.insights.card2.title')}
+            </div>
+            <div class="insight-number" id="insightValue2">0.87</div>
+            <div class="insight-detail" id="insightUnit2">
+              {t('data.population.insights.card2.subtitle')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-label" id="insightLabel3">
+              {t('data.population.insights.card3.title')}
+            </div>
+            <div class="insight-number" id="insightValue3">18%</div>
+            <div class="insight-detail" id="insightUnit3">
+              {t('data.population.insights.card3.subtitle')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-label" id="insightLabel4">
+              {t('data.population.insights.card4.title')}
+            </div>
+            <div class="insight-number" id="insightValue4">2,340</div>
+            <div class="insight-detail" id="insightUnit4">
+              {t('data.population.insights.card4.subtitle')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hong Kong Shape Section -->
+    <section class="hk-shape-section" id="shape">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="story-intro">
+        <h2 class="section-title">{t('data.hkShape.title')}</h2>
+        <div class="story-text">
+          <p>{t('data.hkShape.story.p1')}</p>
+          <p>{t('data.hkShape.story.p2')}</p>
+        </div>
+      </div>
+
+      <!-- AI vs Real Hong Kong Comparison -->
+      <div class="hk-comparison">
+        <h3 class="comparison-title">{t('data.hkComparison.title')}</h3>
+        <div class="comparison-grid">
+          <div class="comparison-item wrong">
+            <div class="svg-container">
+              <img
+                src="/assets/svg/ai-hk-wrong.svg"
+                alt="AI Generated Hong Kong (Wrong)"
+              />
+            </div>
+            <div class="comparison-label wrong">
+              {t('data.hkComparison.aiGenerated')}
+            </div>
+          </div>
+          <div class="comparison-vs">VS</div>
+          <div class="comparison-item correct">
+            <div class="svg-container">
+              <img
+                src="/assets/svg/hk-icon-wiki.svg"
+                alt="Correct Hong Kong Shape"
+              />
+            </div>
+            <div class="comparison-label correct">
+              {t('data.hkComparison.correct')}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SVG Cards -->
+      <div class="svg-grid">
+        <div class="svg-card">
+          <div class="svg-preview">
+            <img src="/assets/svg/hk-icon-wiki.svg" alt="Hong Kong Icon" />
+          </div>
+          <div class="svg-info">
+            <h3>{t('data.svg.card1.title')}</h3>
+            <p class="svg-desc">{t('data.svg.card1.description')}</p>
+            <p class="svg-meta">Wikimedia Commons · CC</p>
+            <div class="svg-actions">
+              <a
+                href="/assets/svg/hk-icon-wiki.svg"
+                download
+                class="btn btn-primary"
+              >
+                {t('data.svg.button.download')}
+              </a>
+              <button
+                class="btn btn-outline"
+                onclick="copySVG('hk-icon-wiki.svg', this)"
+              >
+                {t('data.svg.button.copy')}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="svg-card">
+          <div class="svg-preview">
+            <img
+              src="/assets/svg/hk-simplemaps.svg"
+              alt="Hong Kong SimpleMaps"
+            />
+          </div>
+          <div class="svg-info">
+            <h3>{t('data.svg.card2.title')}</h3>
+            <p class="svg-desc">{t('data.svg.card2.description')}</p>
+            <p class="svg-meta">SimpleMaps · 5 KB</p>
+            <div class="svg-actions">
+              <a
+                href="/assets/svg/hk-simplemaps.svg"
+                download
+                class="btn btn-primary"
+              >
+                {t('data.svg.button.download')}
+              </a>
+              <button
+                class="btn btn-outline"
+                onclick="copySVG('hk-simplemaps.svg', this)"
+              >
+                {t('data.svg.button.copy')}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="svg-card">
+          <div class="svg-preview">
+            <img
+              src="/assets/svg/hk-location-map.svg"
+              alt="Hong Kong Location Map"
+            />
+          </div>
+          <div class="svg-info">
+            <h3>{t('data.svg.card3.title')}</h3>
+            <p class="svg-desc">{t('data.svg.card3.description')}</p>
+            <p class="svg-meta">Wikimedia Commons · CC</p>
+            <div class="svg-actions">
+              <a
+                href="/assets/svg/hk-location-map.svg"
+                download
+                class="btn btn-primary"
+              >
+                {t('data.svg.button.download')}
+              </a>
+              <button
+                class="btn btn-outline"
+                onclick="copySVG('hk-location-map.svg', this)"
+              >
+                {t('data.svg.button.copy')}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="svg-card">
+          <div class="svg-preview">
+            <img
+              src="/assets/svg/hk-political-division.svg"
+              alt="Hong Kong Political Division"
+            />
+          </div>
+          <div class="svg-info">
+            <h3>{t('data.svg.card4.title')}</h3>
+            <p class="svg-desc">{t('data.svg.card4.description')}</p>
+            <p class="svg-meta">Wikimedia Commons · CC</p>
+            <div class="svg-actions">
+              <a
+                href="/assets/svg/hk-political-division.svg"
+                download
+                class="btn btn-primary"
+              >
+                {t('data.svg.button.download')}
+              </a>
+              <button
+                class="btn btn-outline"
+                onclick="copySVG('hk-political-division.svg', this)"
+              >
+                {t('data.svg.button.copy')}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Usage Example -->
+      <div class="usage-example">
+        <h3>{t('data.svg.usage.heading')}</h3>
+        <div class="code-block">
+          <pre><code>&lt;!-- 直接嵌入 / Embed directly --&gt;
+&lt;img src="https://hongkong.md/assets/svg/hk-icon-wiki.svg" alt="Hong Kong" width="200"&gt;
+
+&lt;!-- 作為 CSS 背景 / As CSS background --&gt;
+background-image: url('https://hongkong.md/assets/svg/hk-icon-wiki.svg');
+
+&lt;!-- 在 Markdown 中引用 / In Markdown --&gt;
+![Hong Kong](https://hongkong.md/assets/svg/hk-icon-wiki.svg)</code></pre>
+        </div>
+        <p class="license-note">
+          {t('data.svg.usage.licenseNote')}
+        </p>
+      </div>
+    </section>
+
+    <!-- Digital Democracy Timeline Section -->
+    <section class="digital-democracy-section" id="democracy">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="story-intro">
+        <h2 class="section-title">{t('data.digitalDemocracy.title')}</h2>
+        <div class="story-text">
+          <p>{t('data.digitalDemocracy.story.p1')}</p>
+          <p>{t('data.digitalDemocracy.story.p2')}</p>
+        </div>
+      </div>
+
+      <!-- Horizontal Timeline -->
+      <div class="timeline-container">
+        <div class="timeline-horizontal">
+          <div class="timeline-item" data-year="1997">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">1997</div>
+              <div class="timeline-title">{t('data.timeline.1997.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.1997.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2003">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2003</div>
+              <div class="timeline-title">{t('data.timeline.2003.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2003.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2012">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2012</div>
+              <div class="timeline-title">{t('data.timeline.2012.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2012.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2013">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2013</div>
+              <div class="timeline-title">{t('data.timeline.2013.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2013.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2014">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2014</div>
+              <div class="timeline-title">{t('data.timeline.2014.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2014.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2015">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2015</div>
+              <div class="timeline-title">{t('data.timeline.2015.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2015.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2016">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2016</div>
+              <div class="timeline-title">{t('data.timeline.2016.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2016.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2020">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2020</div>
+              <div class="timeline-title">{t('data.timeline.2020.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2020.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2022">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2022</div>
+              <div class="timeline-title">{t('data.timeline.2022.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2022.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2023">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2023</div>
+              <div class="timeline-title">{t('data.timeline.2023.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2023.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2024">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2024</div>
+              <div class="timeline-title">{t('data.timeline.2024.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2024.desc')}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Open Data Categories (3-column grid) -->
+      <div class="open-data-section" id="opendata">
+        <h3
+          class="section-title"
+          style="margin-top: 5rem; margin-bottom: 2rem;"
+        >
+          📊 開放資料
+        </h3>
+        <div class="data-categories-grid">
+          {
+            dataCategories.map((cat) => (
+              <div class="data-category-card">
+                <div class="category-header">
+                  <span class="category-icon">{cat.icon}</span>
+                  <div>
+                    <h4 class="category-title">{cat.title}</h4>
+                    <p class="category-desc">{cat.description}</p>
+                  </div>
+                </div>
+                <ul class="item-list">
+                  {cat.items.map((item) => (
+                    <li class="item">
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="item-link"
+                      >
+                        {item.name}
+                      </a>
+                      <span class="item-desc">— {item.desc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Enterprise Landscape -->
+    <section class="companies-section" id="enterprise">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="story-intro">
+        <h2 class="section-title">{t('data.enterprise.title')}</h2>
+        <div class="story-text">
+          <p>{t('data.enterprise.story.p1')}</p>
+          <p>{t('data.enterprise.story.p2')}</p>
+        </div>
+      </div>
+
+      <!-- Bubble Chart Controls -->
+      <div class="bubble-controls">
+        <div class="size-toggle">
+          <label>{t('data.enterprise.controls.sizeLabel')}</label>
+          <button class="toggle-btn active" data-mode="marketCap">
+            {t('data.enterprise.controls.marketCap')}
+          </button>
+          <button class="toggle-btn" data-mode="revenue">
+            {t('data.enterprise.controls.revenue')}
+          </button>
+          <button class="toggle-btn" data-mode="employees">
+            {t('data.enterprise.controls.employees')}
+          </button>
+        </div>
+        <div class="sector-filters">
+          <button class="sector-btn active" data-sector="all">
+            {t('data.enterprise.controls.filterAll')}
+          </button>
+          {
+            sectors.slice(0, 8).map((s) => (
+              <button
+                class="sector-btn"
+                data-sector={s}
+                style={`--sector-color: ${sectorColors[s] || '#888'}`}
+              >
+                <span
+                  class="sector-dot"
+                  style={`background: ${sectorColors[s] || '#888'}`}
+                />
+                {t(`data.sector.${s}`)}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Bubble Chart Container -->
+      <div id="bubble-chart"></div>
+
+      <!-- Key Insights -->
+      <div class="insights">
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.enterprise.insights.card1.number')}
+            </div>
+            <div class="insight-label">
+              {t('data.enterprise.insights.card1.label')}
+            </div>
+            <div class="insight-detail">
+              {t('data.enterprise.insights.card1.detail')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.enterprise.insights.card2.number')}
+            </div>
+            <div class="insight-label">
+              {t('data.enterprise.insights.card2.label')}
+            </div>
+            <div class="insight-detail">
+              {t('data.enterprise.insights.card2.detail')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.enterprise.insights.card3.number')}
+            </div>
+            <div class="insight-label">
+              {t('data.enterprise.insights.card3.label')}
+            </div>
+            <div class="insight-detail">
+              {t('data.enterprise.insights.card3.detail')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.enterprise.insights.card4.number')}
+            </div>
+            <div class="insight-label">
+              {t('data.enterprise.insights.card4.label')}
+            </div>
+            <div class="insight-detail">
+              {t('data.enterprise.insights.card4.detail')}
+            </div>
+          </div>
+        </div>
+        <div class="explore-more">
+          <a href="/economy" class="explore-link">
+            {t('data.enterprise.exploreLink')}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="data-footer">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <h3 class="footer-title">{t('data.footer.heading')}</h3>
+      <div class="footer-links">
+        <a href="/economy" class="footer-link">
+          <span class="footer-icon">📈</span>
+          <div class="footer-text">
+            <span class="footer-name">{t('data.footer.link1.name')}</span>
+            <span class="footer-desc">
+              {t('data.footer.link1.description')}
+            </span>
+          </div>
+        </a>
+        <a href="/graph" class="footer-link">
+          <span class="footer-icon">🕸️</span>
+          <div class="footer-text">
+            <span class="footer-name">{t('data.footer.link2.name')}</span>
+            <span class="footer-desc">
+              {t('data.footer.link2.description')}
+            </span>
+          </div>
+        </a>
+        <a href="/contribute" class="footer-link">
+          <span class="footer-icon">✋</span>
+          <div class="footer-text">
+            <span class="footer-name">{t('data.footer.link3.name')}</span>
+            <span class="footer-desc">
+              {t('data.footer.link3.description')}
+            </span>
+          </div>
+        </a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- D3 Bubble Chart Script -->
+  <script define:vars={{ companies, sectorColors, lang }}>
+    const data = companies;
+    const colors = sectorColors;
+    const currentLang = lang;
+
+    // Load D3
+    const script = document.createElement('script');
+    script.src = 'https://d3js.org/d3.v7.min.js';
+    script.onload = () => initBubbleChart(data, colors, currentLang);
+    document.head.appendChild(script);
+
+    function initBubbleChart(data, colors, lang) {
+      const container = document.getElementById('bubble-chart');
+      const width = container.clientWidth;
+      const height = Math.max(500, window.innerHeight * 0.5);
+
+      let currentMode = 'marketCap';
+      let currentSector = 'all';
+
+      const svg = d3
+        .select('#bubble-chart')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height)
+        .attr('viewBox', `0 0 ${width} ${height}`);
+
+      const tooltip = d3
+        .select('#bubble-chart')
+        .append('div')
+        .attr('class', 'tooltip')
+        .style('opacity', 0);
+
+      function getValue(d) {
+        return d[currentMode] || 0;
+      }
+
+      function getRadius(d) {
+        const val = getValue(d);
+        const maxVal = d3.max(data, getValue);
+        const minR = 12;
+        const maxR = Math.min(width, height) * 0.15;
+        return minR + (maxR - minR) * Math.sqrt(val / maxVal);
+      }
+
+      const simulation = d3
+        .forceSimulation(data)
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('charge', d3.forceManyBody().strength(3))
+        .force(
+          'collision',
+          d3
+            .forceCollide()
+            .radius((d) => getRadius(d) + 1.5)
+            .strength(0.8),
+        )
+        .force('x', d3.forceX(width / 2).strength(0.05))
+        .force('y', d3.forceY(height / 2).strength(0.05));
+
+      const nodes = svg
+        .selectAll('g.node')
+        .data(data)
+        .join('g')
+        .attr('class', 'node')
+        .call(
+          d3
+            .drag()
+            .on('start', (e, d) => {
+              if (!e.active) simulation.alphaTarget(0.3).restart();
+              d.fx = d.x;
+              d.fy = d.y;
+            })
+            .on('drag', (e, d) => {
+              d.fx = e.x;
+              d.fy = e.y;
+            })
+            .on('end', (e, d) => {
+              if (!e.active) simulation.alphaTarget(0);
+              d.fx = null;
+              d.fy = null;
+            }),
+        );
+
+      const circles = nodes
+        .append('circle')
+        .attr('r', (d) => getRadius(d))
+        .attr('fill', (d) => colors[d.sector] || '#888')
+        .attr('fill-opacity', 0.8)
+        .attr('stroke', (d) => colors[d.sector] || '#888')
+        .attr('stroke-width', 2)
+        .attr('stroke-opacity', 0.3)
+        .style('cursor', 'grab');
+
+      const labels = nodes
+        .append('text')
+        .attr('text-anchor', 'middle')
+        .attr('dominant-baseline', 'central')
+        .attr('fill', '#fff')
+        .attr('font-weight', '600')
+        .attr('pointer-events', 'none')
+        .each(function (d) {
+          const r = getRadius(d);
+          const el = d3.select(this);
+          const shortName = d.name.split(' ')[0];
+          const suffix = lang === 'zh-HK' ? ' 億' : 'B';
+          if (r > 40) {
+            el.append('tspan')
+              .attr('x', 0)
+              .attr('dy', '-0.3em')
+              .attr('font-size', `${Math.min(12, r / 4)}px`)
+              .text(shortName);
+            el.append('tspan')
+              .attr('x', 0)
+              .attr('dy', '1.2em')
+              .attr('font-size', `${Math.min(10, r / 5)}px`)
+              .attr('fill-opacity', 0.8)
+              .text(d.marketCap.toLocaleString() + suffix);
+          } else if (r > 20) {
+            el.attr('font-size', `${Math.min(10, r / 3)}px`).text(shortName);
+          } else {
+            el.attr('font-size', '8px').text(shortName.slice(0, 2));
+          }
+        });
+
+      // Get tooltip labels from translations
+      const tooltipData = {
+        marketCap: lang === 'zh-HK' ? '市值' : 'Market Cap',
+        revenue: lang === 'zh-HK' ? '營收' : 'Revenue',
+        employees: lang === 'zh-HK' ? '員工' : 'Employees',
+        founded: lang === 'zh-HK' ? '成立' : 'Founded',
+        unit: lang === 'zh-HK' ? '億 TWD' : 'B TWD',
+        people: lang === 'zh-HK' ? '人' : '',
+        year: lang === 'zh-HK' ? '年' : '',
+      };
+
+      nodes
+        .on('mouseover', (e, d) => {
+          tooltip.transition().duration(200).style('opacity', 1);
+          tooltip
+            .html(
+              `
+            <strong>${d.name}</strong><br/>
+            <span style="color:${colors[d.sector] || '#888'}">● ${d.sector}</span><br/>
+            ${tooltipData.marketCap}：${d.marketCap.toLocaleString()} ${tooltipData.unit}<br/>
+            ${tooltipData.revenue}：${d.revenue.toLocaleString()} ${tooltipData.unit}<br/>
+            ${tooltipData.employees}：${d.employees.toLocaleString()} ${tooltipData.people}<br/>
+            ${tooltipData.founded}：${d.founded} ${tooltipData.year}
+          `,
+            )
+            .style('left', e.pageX + 15 + 'px')
+            .style('top', e.pageY - 10 + 'px');
+          d3.select(e.currentTarget)
+            .select('circle')
+            .attr('fill-opacity', 1)
+            .attr('stroke-width', 3);
+        })
+        .on('mouseout', (e) => {
+          tooltip.transition().duration(300).style('opacity', 0);
+          d3.select(e.currentTarget)
+            .select('circle')
+            .attr('fill-opacity', 0.8)
+            .attr('stroke-width', 2);
+        })
+        .on('click', (e, d) => {
+          e.stopPropagation();
+          if (d.articleUrl) {
+            window.location.href = d.articleUrl;
+          }
+        })
+        .style('cursor', (d) => (d.articleUrl ? 'pointer' : 'default'));
+
+      simulation.on('tick', () => {
+        nodes.attr('transform', (d) => {
+          d.x = Math.max(getRadius(d), Math.min(width - getRadius(d), d.x));
+          d.y = Math.max(getRadius(d), Math.min(height - getRadius(d), d.y));
+          return `translate(${d.x},${d.y})`;
+        });
+      });
+
+      // Toggle controls
+      document.querySelectorAll('.toggle-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document
+            .querySelectorAll('.toggle-btn')
+            .forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentMode = btn.dataset.mode;
+          updateBubbles();
+        });
+      });
+
+      document.querySelectorAll('.sector-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document
+            .querySelectorAll('.sector-btn')
+            .forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentSector = btn.dataset.sector;
+          updateBubbles();
+        });
+      });
+
+      function updateBubbles() {
+        circles
+          .transition()
+          .duration(600)
+          .attr('r', (d) => {
+            if (currentSector !== 'all' && d.sector !== currentSector) return 0;
+            return getRadius(d);
+          })
+          .attr('fill-opacity', (d) => {
+            if (currentSector !== 'all' && d.sector !== currentSector) return 0;
+            return 0.8;
+          });
+
+        labels
+          .transition()
+          .duration(600)
+          .attr('fill-opacity', (d) => {
+            if (currentSector !== 'all' && d.sector !== currentSector) return 0;
+            return 1;
+          });
+
+        simulation
+          .force(
+            'collision',
+            d3
+              .forceCollide()
+              .radius((d) => {
+                if (currentSector !== 'all' && d.sector !== currentSector)
+                  return 0;
+                return getRadius(d) + 1.5;
+              })
+              .strength(0.8),
+          )
+          .alpha(0.6)
+          .restart();
+      }
+    }
+  </script>
+
+  <!-- Population Pyramid Script -->
+  <script define:vars={{ lang }}>
+    // Population data (estimated based on research)
+    const populationData = {
+      2000: {
+        male: [
+          650000, 680000, 720000, 750000, 800000, 820000, 750000, 680000,
+          620000, 550000, 480000, 420000, 350000, 280000, 220000, 160000,
+          120000, 80000,
+        ],
+        female: [
+          620000, 650000, 680000, 710000, 760000, 780000, 720000, 650000,
+          590000, 530000, 460000, 400000, 340000, 280000, 230000, 180000,
+          140000, 100000,
+        ],
+        totalPop: 22270000,
+        medianAge: 30,
+        elderlyRatio: 8.6,
+        youthRatio: 20.1,
+      },
+      2010: {
+        male: [
+          520000, 540000, 580000, 650000, 720000, 750000, 820000, 800000,
+          750000, 680000, 620000, 550000, 480000, 420000, 350000, 280000,
+          220000, 160000,
+        ],
+        female: [
+          490000, 510000, 550000, 620000, 680000, 720000, 780000, 760000,
+          720000, 650000, 590000, 530000, 460000, 400000, 340000, 280000,
+          230000, 180000,
+        ],
+        totalPop: 23160000,
+        medianAge: 37,
+        elderlyRatio: 10.7,
+        youthRatio: 15.6,
+      },
+      2025: {
+        male: [
+          420000, 450000, 480000, 520000, 580000, 650000, 720000, 750000,
+          820000, 800000, 750000, 680000, 620000, 550000, 480000, 420000,
+          350000, 280000,
+        ],
+        female: [
+          400000, 430000, 460000, 490000, 550000, 620000, 680000, 720000,
+          780000, 760000, 720000, 650000, 590000, 530000, 460000, 400000,
+          340000, 280000,
+        ],
+        totalPop: 23300000,
+        medianAge: 43,
+        elderlyRatio: 18.0,
+        youthRatio: 11.5,
+      },
+      2050: {
+        male: [
+          320000, 340000, 360000, 380000, 420000, 480000, 520000, 580000,
+          650000, 720000, 750000, 820000, 800000, 750000, 680000, 620000,
+          550000, 480000,
+        ],
+        female: [
+          300000, 320000, 340000, 360000, 400000, 460000, 490000, 550000,
+          620000, 680000, 720000, 780000, 760000, 720000, 650000, 590000,
+          530000, 460000,
+        ],
+        totalPop: 19800000,
+        medianAge: 57,
+        elderlyRatio: 38.0,
+        youthRatio: 9.2,
+      },
+    };
+
+    const ageGroups = [
+      '0-4',
+      '5-9',
+      '10-14',
+      '15-19',
+      '20-24',
+      '25-29',
+      '30-34',
+      '35-39',
+      '40-44',
+      '45-49',
+      '50-54',
+      '55-59',
+      '60-64',
+      '65-69',
+      '70-74',
+      '75-79',
+      '80-84',
+      '85+',
+    ];
+
+    // Load D3 and initialize population pyramid
+    const pyramidScript = document.createElement('script');
+    pyramidScript.src = 'https://d3js.org/d3.v7.min.js';
+    pyramidScript.onload = () => initPopulationPyramid();
+    document.head.appendChild(pyramidScript);
+
+    function initPopulationPyramid() {
+      const container = document.getElementById('population-pyramid');
+      const width = Math.min(container.clientWidth, 800);
+      const height = 600;
+      const margin = { top: 20, right: 40, bottom: 60, left: 100 };
+
+      let currentYear = 2025;
+
+      const svg = d3
+        .select('#population-pyramid')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height)
+        .attr('viewBox', `0 0 ${width} ${height}`);
+
+      const pyramidGroup = svg
+        .append('g')
+        .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+      const chartWidth = width - margin.left - margin.right;
+      const chartHeight = height - margin.top - margin.bottom;
+
+      // Scales
+      const xScale = d3.scaleLinear().range([0, chartWidth / 2]);
+
+      const yScale = d3
+        .scaleBand()
+        .domain(ageGroups)
+        .range([chartHeight, 0])
+        .padding(0.1);
+
+      // Create gradient colors for age groups
+      const ageColorScale = d3
+        .scaleSequential()
+        .domain([0, ageGroups.length - 1])
+        .interpolator(d3.interpolateViridis);
+
+      // Y axis (age groups)
+      const yAxis = pyramidGroup
+        .append('g')
+        .attr('class', 'y-axis')
+        .attr('transform', `translate(${chartWidth / 2}, 0)`);
+
+      // Male bars (left side)
+      const maleBars = pyramidGroup
+        .selectAll('.male-bar')
+        .data(ageGroups)
+        .join('rect')
+        .attr('class', 'male-bar')
+        .attr('y', (d) => yScale(d))
+        .attr('height', yScale.bandwidth())
+        .attr('fill', (d, i) => ageColorScale(i))
+        .attr('opacity', 0.8);
+
+      // Female bars (right side)
+      const femaleBars = pyramidGroup
+        .selectAll('.female-bar')
+        .data(ageGroups)
+        .join('rect')
+        .attr('class', 'female-bar')
+        .attr('x', chartWidth / 2)
+        .attr('y', (d) => yScale(d))
+        .attr('height', yScale.bandwidth())
+        .attr('fill', (d, i) => ageColorScale(i))
+        .attr('opacity', 0.8);
+
+      // Labels for male/female
+      pyramidGroup
+        .append('text')
+        .attr('text-anchor', 'middle')
+        .attr('x', chartWidth / 4)
+        .attr('y', -5)
+        .attr('fill', '#cbd5e1')
+        .attr('font-weight', 'bold')
+        .text('男性 Male');
+
+      pyramidGroup
+        .append('text')
+        .attr('text-anchor', 'middle')
+        .attr('x', (chartWidth / 4) * 3)
+        .attr('y', -5)
+        .attr('fill', '#cbd5e1')
+        .attr('font-weight', 'bold')
+        .text('女性 Female');
+
+      // Population info box
+      const infoBox = pyramidGroup
+        .append('g')
+        .attr('class', 'info-box')
+        .attr('transform', `translate(${chartWidth - 200}, 20)`);
+
+      infoBox
+        .append('rect')
+        .attr('width', 180)
+        .attr('height', 100)
+        .attr('fill', 'rgba(255, 255, 255, 0.05)')
+        .attr('stroke', 'rgba(255, 255, 255, 0.1)')
+        .attr('rx', 8);
+
+      const infoText = infoBox
+        .append('text')
+        .attr('x', 10)
+        .attr('y', 20)
+        .attr('fill', '#e2e8f0')
+        .attr('font-size', '12px');
+
+      function updatePyramid(year) {
+        const data = populationData[year];
+        const maxPop = Math.max(...data.male, ...data.female);
+
+        xScale.domain([0, maxPop]);
+
+        // Update male bars
+        maleBars
+          .transition()
+          .duration(500)
+          .attr('x', (d, i) => chartWidth / 2 - xScale(data.male[i]))
+          .attr('width', (d, i) => xScale(data.male[i]));
+
+        // Update female bars
+        femaleBars
+          .transition()
+          .duration(500)
+          .attr('width', (d, i) => xScale(data.female[i]));
+
+        // Update Y axis
+        yAxis.selectAll('text').remove();
+
+        yAxis
+          .selectAll('.age-label')
+          .data(ageGroups)
+          .join('text')
+          .attr('class', 'age-label')
+          .attr('text-anchor', 'middle')
+          .attr('x', 0)
+          .attr('y', (d) => yScale(d) + yScale.bandwidth() / 2)
+          .attr('dy', '0.35em')
+          .attr('fill', '#cbd5e1')
+          .attr('font-size', '11px')
+          .text((d) => d);
+
+        // Update info box
+        infoText.selectAll('*').remove();
+
+        infoText
+          .append('tspan')
+          .attr('x', 10)
+          .attr('dy', 0)
+          .attr('font-weight', 'bold')
+          .attr('fill', '#60a5fa')
+          .text(`${year} 年`);
+
+        infoText
+          .append('tspan')
+          .attr('x', 10)
+          .attr('dy', 18)
+          .text(`總人口：${(data.totalPop / 10000).toFixed(0)}萬人`);
+
+        infoText
+          .append('tspan')
+          .attr('x', 10)
+          .attr('dy', 15)
+          .text(`中位數年齡：${data.medianAge}歲`);
+
+        infoText
+          .append('tspan')
+          .attr('x', 10)
+          .attr('dy', 15)
+          .text(`老年佔比：${data.elderlyRatio}%`);
+
+        infoText
+          .append('tspan')
+          .attr('x', 10)
+          .attr('dy', 15)
+          .text(`幼年佔比：${data.youthRatio}%`);
+      }
+
+      // Insight card data per year
+      const insightData = {
+        2000: {
+          medianAge: '30',
+          birthRate: '1.68',
+          elderlyPct: '8.6%',
+          totalPop: '2,227',
+        },
+        2010: {
+          medianAge: '37',
+          birthRate: '0.90',
+          elderlyPct: '10.7%',
+          totalPop: '2,316',
+        },
+        2025: {
+          medianAge: '43',
+          birthRate: '0.87',
+          elderlyPct: '18%',
+          totalPop: '2,340',
+        },
+        2050: {
+          medianAge: '57',
+          birthRate: '0.74',
+          elderlyPct: '38%',
+          totalPop: '<2,000',
+        },
+      };
+
+      const langIsEn =
+        document.documentElement.lang === 'en' ||
+        window.location.pathname.startsWith('/en');
+      const unitAge = langIsEn ? ' yrs' : ' 歲';
+      const unitPop = langIsEn ? ' (10K)' : ' 萬人';
+
+      function updateInsightCards(year) {
+        const d = insightData[year];
+        if (!d) return;
+        const v1 = document.getElementById('insightValue1');
+        const v2 = document.getElementById('insightValue2');
+        const v3 = document.getElementById('insightValue3');
+        const v4 = document.getElementById('insightValue4');
+        const u4 = document.getElementById('insightUnit4');
+        if (v1) v1.textContent = d.medianAge + unitAge;
+        if (v2) v2.textContent = d.birthRate;
+        if (v3) v3.textContent = d.elderlyPct;
+        if (v4) v4.textContent = d.totalPop;
+        if (u4) u4.textContent = unitPop;
+      }
+
+      // Initialize with 2025 data
+      updatePyramid(currentYear);
+      updateInsightCards(currentYear);
+
+      // Slider implementation
+      const slider = document.querySelector('.slider-track');
+      const thumb = document.getElementById('yearThumb');
+      const currentYearLabel = document.getElementById('currentYear');
+      const years = [2000, 2010, 2025, 2050];
+
+      let isDragging = false;
+      let sliderRect;
+
+      function updateSliderPosition() {
+        const yearIndex = years.indexOf(currentYear);
+        const percentage = yearIndex / (years.length - 1);
+        thumb.style.left = `calc(${percentage * 100}% - 12px)`;
+        currentYearLabel.textContent = currentYear;
+      }
+
+      function handleSliderUpdate(clientX) {
+        const rect = sliderRect || slider.getBoundingClientRect();
+        const percentage = Math.max(
+          0,
+          Math.min(1, (clientX - rect.left) / rect.width),
+        );
+        const yearIndex = Math.round(percentage * (years.length - 1));
+        const newYear = years[yearIndex];
+
+        if (newYear !== currentYear) {
+          currentYear = newYear;
+          updateSliderPosition();
+          updatePyramid(currentYear);
+          updateInsightCards(currentYear);
+        }
+      }
+
+      thumb.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        sliderRect = slider.getBoundingClientRect();
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+        e.preventDefault();
+      });
+
+      function onMouseMove(e) {
+        if (isDragging) {
+          handleSliderUpdate(e.clientX);
+        }
+      }
+
+      function onMouseUp() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+
+      slider.addEventListener('click', (e) => {
+        if (e.target !== thumb) {
+          sliderRect = slider.getBoundingClientRect();
+          handleSliderUpdate(e.clientX);
+        }
+      });
+
+      // Touch events for mobile
+      thumb.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        sliderRect = slider.getBoundingClientRect();
+        e.preventDefault();
+      });
+
+      document.addEventListener('touchmove', (e) => {
+        if (isDragging) {
+          const touch = e.touches[0];
+          handleSliderUpdate(touch.clientX);
+          e.preventDefault();
+        }
+      });
+
+      document.addEventListener('touchend', () => {
+        isDragging = false;
+      });
+
+      updateSliderPosition();
+
+      // Responsive handling
+      window.addEventListener('resize', () => {
+        sliderRect = null;
+      });
+    }
+  </script>
+
+  <!-- SVG Copy Function -->
+  <script is:inline define:vars={{ lang }}>
+    async function copySVG(filename, btn) {
+      const currentLang = lang;
+      try {
+        const res = await fetch('/assets/svg/' + filename);
+        const text = await res.text();
+        await navigator.clipboard.writeText(text);
+        const orig = btn.textContent;
+        btn.textContent = currentLang === 'zh-HK' ? '✅ 已複製' : '✅ Copied';
+        setTimeout(() => (btn.textContent = orig), 2000);
+      } catch (e) {
+        btn.textContent = currentLang === 'zh-HK' ? '❌ 複製失敗' : '❌ Failed';
+        setTimeout(
+          () =>
+            (btn.textContent =
+              currentLang === 'zh-HK' ? '複製代碼' : 'Copy SVG'),
+          2000,
+        );
+      }
+    }
+  </script>
+
+  <!-- Chart.js Visualization Script -->
+  <script define:vars={{ contentStats, lang }}>
+    // Load Chart.js
+    const chartScript = document.createElement('script');
+    chartScript.src =
+      'https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js';
+    chartScript.onload = () => initContentCharts();
+    document.head.appendChild(chartScript);
+
+    function initContentCharts() {
+      const isEn = lang === 'en';
+      const stats = contentStats;
+
+      // Category Distribution Chart (Doughnut)
+      const categoryCtx = document.getElementById('categoryChart');
+      if (categoryCtx) {
+        const categoryData = Object.entries(stats.categories)
+          .filter(([cat]) => cat !== 'root')
+          .sort((a, b) => b[1] - a[1]);
+
+        new Chart(categoryCtx, {
+          type: 'doughnut',
+          data: {
+            labels: categoryData.map(([cat]) => cat),
+            datasets: [
+              {
+                data: categoryData.map(([, count]) => count),
+                backgroundColor: [
+                  '#3b82f6',
+                  '#8b5cf6',
+                  '#ec4899',
+                  '#f59e0b',
+                  '#10b981',
+                  '#06b6d4',
+                  '#84cc16',
+                  '#f97316',
+                  '#ef4444',
+                  '#6366f1',
+                  '#8b5cf6',
+                  '#ec4899',
+                  '#f59e0b',
+                  '#10b981',
+                  '#06b6d4',
+                ],
+                borderWidth: 2,
+                borderColor: '#1e293b',
+                hoverBorderWidth: 3,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: {
+                  color: '#e2e8f0',
+                  font: { size: 11 },
+                  padding: 12,
+                  usePointStyle: true,
+                },
+              },
+              tooltip: {
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                titleColor: '#e2e8f0',
+                bodyColor: '#e2e8f0',
+                borderColor: 'rgba(255, 255, 255, 0.1)',
+                borderWidth: 1,
+                callbacks: {
+                  label: function (context) {
+                    const total = context.dataset.data.reduce(
+                      (a, b) => a + b,
+                      0,
+                    );
+                    const percentage = ((context.raw / total) * 100).toFixed(1);
+                    return `${context.label}: ${context.raw} 篇 (${percentage}%)`;
+                  },
+                },
+              },
+            },
+          },
+        });
+      }
+
+      // Growth Timeline Chart (Line)
+      const growthCtx = document.getElementById('growthChart');
+      if (growthCtx) {
+        const growthData = stats.dailyGrowth || [];
+
+        new Chart(growthCtx, {
+          type: 'line',
+          data: {
+            labels: growthData.map((d) => d.date),
+            datasets: [
+              {
+                label: isEn ? 'Articles Added' : '新增文章',
+                data: growthData.map((d) => d.count),
+                borderColor: '#3b82f6',
+                backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                pointBackgroundColor: '#3b82f6',
+                pointBorderColor: '#1e293b',
+                pointBorderWidth: 2,
+                pointRadius: 5,
+                pointHoverRadius: 7,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                ticks: {
+                  color: '#94a3b8',
+                  font: { size: 11 },
+                },
+                grid: {
+                  color: 'rgba(148, 163, 184, 0.1)',
+                },
+              },
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  color: '#94a3b8',
+                  font: { size: 11 },
+                },
+                grid: {
+                  color: 'rgba(148, 163, 184, 0.1)',
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                titleColor: '#e2e8f0',
+                bodyColor: '#e2e8f0',
+                borderColor: 'rgba(255, 255, 255, 0.1)',
+                borderWidth: 1,
+              },
+            },
+            elements: {
+              point: {
+                hoverBackgroundColor: '#60a5fa',
+              },
+            },
+          },
+        });
+      }
+    }
+  </script>
+
+  <style>
+    .data-hub {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero-emoji {
+      -webkit-text-fill-color: initial;
+      background: none;
+      -webkit-background-clip: initial;
+      background-clip: initial;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #cbd5e1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Section Divider */
+    .section-divider {
+      padding: 2rem 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .divider-line {
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #60a5fa, transparent);
+      border-radius: 2px;
+    }
+
+    /* Story Block */
+    .story-intro {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .story-text {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .story-text p {
+      color: #cbd5e1;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .story-text p:first-child {
+      font-size: 1.1rem;
+      color: #93c5fd;
+      font-weight: 600;
+    }
+
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Enterprise Section */
+    .companies-section {
+      padding: 2rem 0 4rem;
+    }
+
+    .bubble-controls {
+      max-width: 1400px;
+      margin: 0 auto 2rem;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .size-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .size-toggle label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .toggle-btn {
+      padding: 0.4rem 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #cbd5e1;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .toggle-btn.active {
+      background: #3b82f6;
+      color: #fff;
+      border-color: #3b82f6;
+    }
+
+    .sector-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .sector-btn {
+      padding: 0.3rem 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #cbd5e1;
+      cursor: pointer;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s;
+    }
+
+    .sector-btn.active {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
+      font-weight: 600;
+    }
+
+    .sector-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    #bubble-chart {
+      position: relative;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      min-height: 500px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #1a1a2e;
+    }
+
+    :global(.tooltip) {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.9);
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      pointer-events: none;
+      z-index: 100;
+      max-width: 280px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .insights {
+      max-width: 1400px;
+      margin: 2rem auto 0;
+      padding: 0 2rem;
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .insight-card {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .insight-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #60a5fa;
+      margin-bottom: 0.3rem;
+    }
+
+    .insight-label {
+      font-weight: 600;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .insight-detail {
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+
+    .explore-more {
+      text-align: center;
+    }
+
+    .explore-link {
+      display: inline-block;
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .explore-link:hover {
+      background: rgba(96, 165, 250, 0.1);
+      color: #93c5fd;
+    }
+
+    /* Hong Kong Shape Section */
+    .hk-shape-section {
+      padding: 2rem 0 4rem;
+    }
+
+    .svg-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .svg-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .svg-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .svg-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      height: 140px;
+    }
+
+    .svg-preview img {
+      max-height: 100px;
+      max-width: 80px;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+    }
+
+    .svg-info {
+      padding: 1.5rem;
+    }
+
+    .svg-info h3 {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      margin-bottom: 0.5rem;
+    }
+
+    .svg-desc {
+      color: #cbd5e1;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    .svg-meta {
+      color: #94a3b8;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .svg-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      transition: all 0.2s;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: #3b82f6;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #60a5fa;
+      border: 1px solid #60a5fa;
+    }
+
+    .btn-outline:hover {
+      background: rgba(96, 165, 250, 0.1);
+    }
+
+    .usage-example {
+      max-width: 1400px;
+      margin: 3rem auto 0;
+      padding: 0 2rem;
+    }
+
+    .usage-example h3 {
+      color: #f8fafc;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .code-block {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      overflow-x: auto;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .code-block code {
+      color: #e2e8f0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      white-space: pre;
+    }
+
+    .license-note {
+      margin-top: 1rem;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    .license-note a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .license-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* Population Pyramid Section */
+    .population-section {
+      padding: 2rem 0 4rem;
+    }
+
+    .pyramid-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    #population-pyramid {
+      width: 100%;
+      min-height: 600px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .year-slider-container {
+      margin: 2rem auto 0;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .slider-track {
+      position: relative;
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+
+    .slider-track::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b);
+      border-radius: 4px;
+      opacity: 0.6;
+    }
+
+    .slider-thumb {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: #60a5fa;
+      border: 3px solid #0f172a;
+      border-radius: 50%;
+      top: -8px;
+      cursor: grab;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 12px rgba(96, 165, 250, 0.4);
+    }
+
+    .slider-thumb:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 20px rgba(96, 165, 250, 0.6);
+    }
+
+    .slider-thumb:active {
+      cursor: grabbing;
+      transform: scale(1.05);
+    }
+
+    .year-labels {
+      display: flex;
+      justify-content: space-between;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .current-year {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #60a5fa;
+      margin-top: 0.5rem;
+    }
+
+    .population-section .insights {
+      max-width: 1000px;
+      margin: 3rem auto 0;
+      padding: 0 2rem;
+    }
+
+    .population-section .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .population-section .insight-card {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .population-section .insight-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .population-section .insight-number {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #60a5fa;
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+    }
+
+    .population-section .insight-label {
+      font-weight: 600;
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .population-section .insight-detail {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* Hong Kong vs World Section */
+    .hk-vs-world-section {
+      padding: 2rem 0 4rem;
+    }
+
+    .comparison-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .comparison-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .comparison-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .comparison-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .comparison-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .card-number {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #60a5fa;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .card-label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .card-context {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    /* Digital Democracy Timeline Section */
+    .digital-democracy-section {
+      padding: 2rem 0 6rem;
+    }
+
+    .timeline-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    /* Horizontal Timeline for Desktop */
+    .timeline-horizontal {
+      position: relative;
+      padding: 8rem 0 8rem;
+      overflow: visible;
+    }
+
+    .timeline-horizontal::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      right: 5%;
+      height: 3px;
+      background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .timeline-horizontal .timeline-item {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .timeline-horizontal .timeline-item[data-year='1997'] {
+      left: 5%;
+    }
+    .timeline-horizontal .timeline-item[data-year='2003'] {
+      left: 14%;
+    }
+    .timeline-horizontal .timeline-item[data-year='2012'] {
+      left: 23%;
+    }
+    .timeline-horizontal .timeline-item[data-year='2013'] {
+      left: 32%;
+    }
+    .timeline-horizontal .timeline-item[data-year='2014'] {
+      left: 41%;
+    }
+    .timeline-horizontal .timeline-item[data-year='2015'] {
+      left: 50%;
+    }
+    .timeline-horizontal .timeline-item[data-year='2016'] {
+      left: 59%;
+    }
+    .timeline-horizontal .timeline-item[data-year='2020'] {
+      left: 68%;
+    }
+    .timeline-horizontal .timeline-item[data-year='2022'] {
+      left: 77%;
+    }
+    .timeline-horizontal .timeline-item[data-year='2023'] {
+      left: 86%;
+    }
+    .timeline-horizontal .timeline-item[data-year='2024'] {
+      left: 95%;
+    }
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      background: #3b82f6;
+      border: 3px solid #0f172a;
+      border-radius: 50%;
+      position: relative;
+      transform: translateX(-50%);
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    .timeline-item:hover .timeline-dot {
+      background: #60a5fa;
+      transform: translateX(-50%) scale(1.3);
+      box-shadow: 0 0 15px rgba(96, 165, 250, 0.6);
+    }
+
+    .timeline-content {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 15px;
+      background: rgba(30, 41, 59, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      min-width: 160px;
+      max-width: 220px;
+      text-align: center;
+      opacity: 1;
+      pointer-events: auto;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+    }
+
+    .timeline-item:hover .timeline-content {
+      transform: translateX(-50%) translateY(-5px);
+      background: rgba(30, 41, 59, 0.95);
+      box-shadow: 0 8px 25px rgba(96, 165, 250, 0.2);
+    }
+
+    .timeline-year {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #3b82f6;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 0.25rem;
+      line-height: 1.3;
+    }
+
+    .timeline-desc {
+      font-size: 0.65rem;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* Alternate above/below layout */
+    .timeline-horizontal .timeline-item:nth-child(odd) .timeline-content {
+      bottom: 100%;
+      top: auto;
+      margin-bottom: 15px;
+    }
+
+    .timeline-horizontal .timeline-item:nth-child(even) .timeline-content {
+      top: 100%;
+      bottom: auto;
+      margin-top: 15px;
+      margin-bottom: 0;
+    }
+
+    /* Open Data 3-Column Grid */
+    .data-categories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .data-categories-grid .data-category-card:nth-child(4),
+    .data-categories-grid .data-category-card:nth-child(5) {
+      grid-column: span 1;
+      margin: 0 auto;
+      max-width: 400px;
+    }
+
+    /* Open Data Section (now part of digital democracy) */
+    .digital-democracy-section .data-categories {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .data-categories {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .data-category-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .data-category-card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .category-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .category-icon {
+      font-size: 2rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .category-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 0.25rem;
+    }
+
+    .category-desc {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    .item-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .item {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      line-height: 1.6;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .item-link {
+      color: #7dd3fc !important;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .item-link:hover {
+      color: #bae6fd !important;
+      border-bottom-color: #bae6fd;
+    }
+
+    .item-desc {
+      color: #cbd5e1;
+      font-size: 0.85rem;
+    }
+
+    /* Knowledge Graph Section */
+    .knowledge-graph-section {
+      padding: 2rem 0 4rem;
+    }
+
+    .graph-cta {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .graph-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem 2rem;
+      background: rgba(255, 255, 255, 0.06);
+      color: #e2e8f0;
+      text-decoration: none;
+      border-radius: 16px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      min-width: 320px;
+    }
+
+    .graph-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .graph-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .graph-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .graph-title {
+      display: block;
+      font-size: 1.1rem;
+      color: #f1f5f9;
+      margin-bottom: 0.2rem;
+    }
+
+    .graph-desc {
+      display: block;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      font-weight: normal;
+    }
+
+    .graph-arrow {
+      font-size: 1.5rem;
+      color: #60a5fa;
+      flex-shrink: 0;
+    }
+
+    /* Content Analytics Section */
+    .content-analytics-section {
+      padding: 2rem 0 4rem;
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+
+    .chart-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .chart-card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .chart-card h3 {
+      color: #f8fafc;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .chart-desc {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .chart-wrapper {
+      position: relative;
+      height: 300px;
+      width: 100%;
+    }
+
+    .stats-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .stat-item {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .stat-label {
+      color: #cbd5e1;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .data-footer {
+      padding: 2rem 0 4rem;
+    }
+
+    .footer-title {
+      text-align: center;
+      color: #f8fafc;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .footer-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: rgba(255, 255, 255, 0.04);
+      color: #cbd5e1;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #e2e8f0;
+    }
+
+    .footer-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .footer-text {
+      flex: 1;
+    }
+
+    .footer-name {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .footer-desc {
+      display: block;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 2.5rem 1rem 2rem;
+      }
+
+      .story-intro {
+        padding: 0 1rem 1.5rem;
+      }
+
+      .story-text {
+        padding: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .bubble-controls {
+        padding: 0 1rem;
+      }
+
+      .svg-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+      }
+
+      .data-categories {
+        padding: 0 1rem;
+      }
+
+      .data-category-card {
+        padding: 1.5rem;
+      }
+
+      .category-header {
+        gap: 0.75rem;
+      }
+
+      .category-icon {
+        font-size: 1.5rem;
+      }
+
+      .category-title {
+        font-size: 1.2rem;
+      }
+
+      .insight-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .graph-btn {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        min-width: auto;
+      }
+
+      .graph-text {
+        text-align: center;
+      }
+
+      .footer-links {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+      }
+
+      /* Hong Kong vs World responsive */
+      .comparison-cards {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        padding: 0 1rem;
+      }
+
+      .comparison-card {
+        padding: 1.5rem;
+      }
+
+      .card-emoji {
+        font-size: 2rem;
+      }
+
+      .card-number {
+        font-size: 1.8rem;
+      }
+
+      /* Timeline responsive - Mobile: Vertical layout */
+      .timeline-container {
+        padding: 0 1rem 2rem;
+      }
+
+      .timeline-horizontal {
+        padding: 1rem 0;
+        max-height: none;
+        overflow: visible;
+      }
+
+      .timeline-horizontal::before {
+        top: 0;
+        bottom: 0;
+        left: 2rem;
+        right: auto;
+        width: 3px;
+        height: auto;
+        background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #ec4899);
+        transform: none;
+      }
+
+      .timeline-horizontal .timeline-item {
+        position: relative;
+        top: auto;
+        left: auto !important;
+        transform: none;
+        margin-bottom: 2rem;
+        display: block;
+      }
+
+      .timeline-horizontal .timeline-item .timeline-dot {
+        position: absolute;
+        left: 2rem;
+        top: 1rem;
+        transform: translateX(-50%);
+      }
+
+      .timeline-horizontal .timeline-item .timeline-content {
+        position: static;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        margin-left: 4rem;
+        margin-bottom: 0;
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: none;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        text-align: left;
+        min-width: auto;
+        max-width: none;
+        padding: 1.25rem;
+      }
+
+      .timeline-horizontal .timeline-item:hover .timeline-content {
+        transform: none;
+      }
+
+      .timeline-horizontal .timeline-item .timeline-year {
+        font-size: 1rem;
+        color: #60a5fa;
+      }
+
+      .timeline-horizontal .timeline-item .timeline-title {
+        font-size: 0.9rem;
+        color: #f1f5f9;
+      }
+
+      .timeline-horizontal .timeline-item .timeline-desc {
+        font-size: 0.8rem;
+        color: #cbd5e1;
+      }
+
+      /* Content Analytics responsive */
+      .charts-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+        gap: 1.5rem;
+      }
+
+      .chart-card {
+        padding: 1.5rem;
+      }
+
+      .chart-wrapper {
+        height: 250px;
+      }
+
+      .stats-summary {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0 1rem;
+      }
+
+      .stat-item {
+        padding: 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      /* Open Data Grid - Mobile: Single column */
+      .data-categories-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+      }
+
+      .data-categories-grid .data-category-card:nth-child(4),
+      .data-categories-grid .data-category-card:nth-child(5) {
+        grid-column: auto;
+        margin: 0;
+        max-width: none;
+      }
+
+      /* Population Pyramid responsive */
+      .pyramid-container {
+        padding: 0 1rem;
+      }
+
+      #population-pyramid {
+        min-height: 500px;
+      }
+
+      .year-slider-container {
+        max-width: 300px;
+      }
+
+      .year-labels {
+        font-size: 0.8rem;
+      }
+
+      .current-year {
+        font-size: 1.3rem;
+      }
+
+      .population-section .insights {
+        padding: 0 1rem;
+      }
+
+      .population-section .insight-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .population-section .insight-card {
+        padding: 1.25rem;
+      }
+
+      .population-section .insight-number {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .svg-card {
+        margin: 0 -0.5rem;
+      }
+
+      .svg-preview {
+        height: 120px;
+      }
+
+      .insight-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+      }
+
+      #bubble-chart {
+        min-height: 400px;
+      }
+
+      /* Population pyramid mobile */
+      .pyramid-container {
+        padding: 0 0.5rem;
+      }
+
+      #population-pyramid {
+        min-height: 400px;
+      }
+
+      .year-slider-container {
+        max-width: 250px;
+      }
+
+      .population-section .insight-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .population-section .insight-card {
+        padding: 1rem;
+      }
+    }
+
+    /* Hong Kong AI vs Real Comparison */
+    .hk-comparison {
+      margin: 3rem auto 4rem;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .comparison-title {
+      text-align: center;
+      color: #f8fafc;
+      margin-bottom: 2rem;
+      font-size: 1.3rem;
+    }
+
+    .comparison-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .comparison-item {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+    }
+
+    .svg-container {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 1rem;
+      padding: 1rem;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .comparison-item.wrong .svg-container {
+      background: rgba(255, 107, 107, 0.1);
+      border: 2px solid rgba(255, 107, 107, 0.3);
+    }
+
+    .comparison-item.correct .svg-container {
+      background: rgba(16, 185, 129, 0.1);
+      border: 2px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .comparison-item:hover .svg-container {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .svg-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .comparison-label {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .comparison-label.wrong {
+      color: #fca5a5;
+      background: rgba(255, 107, 107, 0.1);
+    }
+
+    .comparison-label.correct {
+      color: #86efac;
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .comparison-vs {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #64748b;
+      margin: 0 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .comparison-grid {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .comparison-vs {
+        margin: 0;
+        transform: rotate(90deg);
+      }
+
+      .svg-container {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  </style>
+</Layout>

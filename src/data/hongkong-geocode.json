@@ -1,0 +1,34 @@
+{
+  "districts": {
+    "central-and-western": { "lat": 22.286, "lng": 114.150, "region": "hongkong-island", "en": "Central and Western" },
+    "wan-chai": { "lat": 22.278, "lng": 114.172, "region": "hongkong-island", "en": "Wan Chai" },
+    "eastern": { "lat": 22.284, "lng": 114.224, "region": "hongkong-island", "en": "Eastern" },
+    "southern": { "lat": 22.247, "lng": 114.159, "region": "hongkong-island", "en": "Southern" },
+    "yau-tsim-mong": { "lat": 22.321, "lng": 114.170, "region": "kowloon", "en": "Yau Tsim Mong" },
+    "sham-shui-po": { "lat": 22.330, "lng": 114.160, "region": "kowloon", "en": "Sham Shui Po" },
+    "kowloon-city": { "lat": 22.328, "lng": 114.191, "region": "kowloon", "en": "Kowloon City" },
+    "wong-tai-sin": { "lat": 22.342, "lng": 114.194, "region": "kowloon", "en": "Wong Tai Sin" },
+    "kwun-tong": { "lat": 22.313, "lng": 114.226, "region": "kowloon", "en": "Kwun Tong" },
+    "tsuen-wan": { "lat": 22.371, "lng": 114.114, "region": "new-territories", "en": "Tsuen Wan" },
+    "tuen-mun": { "lat": 22.391, "lng": 113.973, "region": "new-territories", "en": "Tuen Mun" },
+    "yuen-long": { "lat": 22.444, "lng": 114.022, "region": "new-territories", "en": "Yuen Long" },
+    "north": { "lat": 22.496, "lng": 114.138, "region": "new-territories", "en": "North" },
+    "tai-po": { "lat": 22.451, "lng": 114.168, "region": "new-territories", "en": "Tai Po" },
+    "sha-tin": { "lat": 22.387, "lng": 114.195, "region": "new-territories", "en": "Sha Tin" },
+    "sai-kung": { "lat": 22.381, "lng": 114.271, "region": "new-territories", "en": "Sai Kung" },
+    "kwai-tsing": { "lat": 22.357, "lng": 114.131, "region": "new-territories", "en": "Kwai Tsing" },
+    "islands": { "lat": 22.261, "lng": 113.946, "region": "new-territories", "en": "Islands" }
+  },
+  "landmarks": {
+    "victoria-peak": { "lat": 22.2759, "lng": 114.1455, "category": "Geography", "en": "Victoria Peak" },
+    "victoria-harbour": { "lat": 22.293, "lng": 114.169, "category": "Geography", "en": "Victoria Harbour" },
+    "star-ferry": { "lat": 22.2935, "lng": 114.1684, "category": "Culture", "en": "Star Ferry" },
+    "man-mo-temple": { "lat": 22.284, "lng": 114.150, "category": "Culture", "en": "Man Mo Temple" },
+    "wong-tai-sin-temple": { "lat": 22.3427, "lng": 114.1933, "category": "Culture", "en": "Wong Tai Sin Temple" },
+    "tai-o": { "lat": 22.252, "lng": 113.862, "category": "Culture", "en": "Tai O Fishing Village" },
+    "m-plus": { "lat": 22.3021, "lng": 114.1604, "category": "Art", "en": "M+ Museum" },
+    "lion-rock": { "lat": 22.352, "lng": 114.184, "category": "Nature", "en": "Lion Rock" },
+    "lantau-peak": { "lat": 22.256, "lng": 113.957, "category": "Nature", "en": "Lantau Peak" },
+    "big-buddha": { "lat": 22.254, "lng": 113.905, "category": "Culture", "en": "Tian Tan Buddha" }
+  }
+}

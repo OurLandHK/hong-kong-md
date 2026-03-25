@@ -1,0 +1,21 @@
+{
+  "generated": "2026-03-24",
+  "total": { "zh": 87, "en": 86 },
+  "coverage_en": "98.9%",
+  "coverage": { "en": "98.9%" },
+  "categories": {
+    "About": { "zh": 2, "en": 2 },
+    "Art": { "zh": 6, "en": 6 },
+    "Culture": { "zh": 9, "en": 9 },
+    "Economy": { "zh": 6, "en": 6 },
+    "Food": { "zh": 10, "en": 10 },
+    "Geography": { "zh": 7, "en": 7 },
+    "History": { "zh": 8, "en": 8 },
+    "Lifestyle": { "zh": 7, "en": 7 },
+    "Music": { "zh": 6, "en": 6 },
+    "Nature": { "zh": 6, "en": 6 },
+    "People": { "zh": 9, "en": 8 },
+    "Society": { "zh": 6, "en": 6 },
+    "Technology": { "zh": 5, "en": 5 }
+  }
+}

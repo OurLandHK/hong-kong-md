@@ -1,0 +1,12 @@
+{
+  "label": "香港僱員每月就業收入中位數 (HKD)",
+  "source": "政府統計處",
+  "data": [
+    { "year": 2000, "median": 10000 },
+    { "year": 2005, "median": 10000 },
+    { "year": 2010, "median": 11800 },
+    { "year": 2015, "median": 15500 },
+    { "year": 2020, "median": 18400 },
+    { "year": 2025, "median": 0, "note": "待更新" }
+  ]
+}
