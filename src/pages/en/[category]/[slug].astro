@@ -596,7 +596,10 @@ const encodedTitle = encodeURIComponent(title);
             {t('article.backToCategory', 'en')}
             {categoryNameEn}
           </a>
-          <a href="/en" class="return-btn return-btn--ghost">
+          <a
+            href={`${import.meta.env.BASE_URL}en`}
+            class="return-btn return-btn--ghost"
+          >
             <svg
               width="14"
               height="14"
@@ -802,12 +805,12 @@ const encodedTitle = encodeURIComponent(title);
   }
 </script>
 
-<script define:vars={{ allArticles }}>
+<script define:vars={{ allArticles, base: import.meta.env.BASE_URL }}>
   const btn = document.getElementById('randomBtn');
   if (btn && allArticles?.length) {
     btn.addEventListener('click', () => {
       const pick = allArticles[Math.floor(Math.random() * allArticles.length)];
-      window.location.href = '/en/' + pick.category + '/' + pick.slug;
+      window.location.href = base + 'en/' + pick.category + '/' + pick.slug;
     });
   }
 </script>

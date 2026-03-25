@@ -1,7 +1,14 @@
 import { readFile } from 'fs/promises';
 import { resolve } from 'path';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 export async function getLangSwitchPath(currentPath: string) {
+  // Strip base prefix for internal logic
+  const path = currentPath.startsWith(base)
+    ? currentPath.slice(base.length) || '/'
+    : currentPath;
+
   // Language switch logic — use _translations.json for article pages
   let zhLink = '/';
   let enLink = '/en';
@@ -48,32 +55,30 @@ export async function getLangSwitchPath(currentPath: string) {
     }
   } catch {}
 
-  if (currentPath.startsWith('/en')) {
-    enLink = currentPath;
-    const decoded = decodeURIComponent(currentPath);
+  if (path.startsWith('/en')) {
+    enLink = path;
+    const decoded = decodeURIComponent(path);
     zhLink =
       translationMap.get(decoded) ||
-      translationMap.get(currentPath) ||
+      translationMap.get(path) ||
       (() => {
-        const match = currentPath.match(/^\/en\/([^/]+)\/[^/]+$/);
-        return match ? `/${match[1]}` : currentPath.replace(/^\/en/, '') || '/';
+        const match = path.match(/^\/en\/([^/]+)\/[^/]+$/);
+        return match ? `/${match[1]}` : path.replace(/^\/en/, '') || '/';
       })();
   } else {
-    zhLink = currentPath;
-    const decoded = decodeURIComponent(currentPath);
+    zhLink = path;
+    const decoded = decodeURIComponent(path);
     enLink =
       reverseMap.get(decoded) ||
-      reverseMap.get(currentPath) ||
+      reverseMap.get(path) ||
       (() => {
-        const match = currentPath.match(/^\/([^/]+)\/[^/]+$/);
-        return match
-          ? `/en/${match[1]}`
-          : '/en' + (currentPath === '/' ? '' : currentPath);
+        const match = path.match(/^\/([^/]+)\/[^/]+$/);
+        return match ? `/en/${match[1]}` : '/en' + (path === '/' ? '' : path);
       })();
   }
 
   return {
-    enLink,
-    zhLink,
+    enLink: `${base}${enLink}`,
+    zhLink: `${base}${zhLink}`,
   };
 }

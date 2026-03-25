@@ -95,7 +95,7 @@ const totalProjects = projects.reduce((sum, cat) => sum + cat.items.length, 0);
 
       <!-- Breadcrumb -->
       <nav class="breadcrumb">
-        <a href="/en">Home</a>
+        <a href={`${import.meta.env.BASE_URL}en`}>Home</a>
         <span class="separator">›</span>
         <span class="current">Community Projects</span>
       </nav>
@@ -178,8 +178,8 @@ const totalProjects = projects.reduce((sum, cat) => sum + cat.items.length, 0);
       <section class="cta-section">
         <h2>Know a great project?</h2>
         <p>
-          Submit a GitHub Issue or PR to recommend more interesting
-          Hong Kong-related projects!
+          Submit a GitHub Issue or PR to recommend more interesting Hong
+          Kong-related projects!
         </p>
         <div class="cta-buttons">
           <a
@@ -190,7 +190,9 @@ const totalProjects = projects.reduce((sum, cat) => sum + cat.items.length, 0);
           >
             Submit Recommendation
           </a>
-          <a href="/en" class="btn-secondary"> ← Back to Home </a>
+          <a href={`${import.meta.env.BASE_URL}en`} class="btn-secondary">
+            ← Back to Home
+          </a>
         </div>
       </section>
     </div>

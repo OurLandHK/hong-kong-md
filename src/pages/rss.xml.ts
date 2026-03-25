@@ -7,14 +7,19 @@ export async function GET(context) {
   // 掃描 knowledge/ 下所有文章
   const knowledgeDir = path.join(process.cwd(), 'knowledge');
   const articles = [];
-  
+
   // 遞迴掃描
   function scanDir(dir, category = '') {
     const files = fs.readdirSync(dir);
     for (const file of files) {
       const full = path.join(dir, file);
       const stat = fs.statSync(full);
-      if (stat.isDirectory() && !file.startsWith('_') && file !== 'en' && file !== 'about') {
+      if (
+        stat.isDirectory() &&
+        !file.startsWith('_') &&
+        file !== 'en' &&
+        file !== 'about'
+      ) {
         scanDir(full, file);
       } else if (file.endsWith('.md') && !file.startsWith('_')) {
         const content = fs.readFileSync(full, 'utf-8');
@@ -31,16 +36,16 @@ export async function GET(context) {
       }
     }
   }
-  
+
   scanDir(knowledgeDir);
-  
+
   // 按日期排序，取最新 50 篇
   articles.sort((a, b) => b.pubDate - a.pubDate);
-  
+
   return rss({
     title: 'HongKong.md — 開源香港知識庫',
     description: '用 Markdown 策展香港，讓世界看見這座島嶼的故事',
-    site: context.site || 'https://hongkong.md',
+    site: new URL(import.meta.env.BASE_URL, context.site).href,
     items: articles.slice(0, 50),
     customData: '<language>zh-HK</language>',
   });

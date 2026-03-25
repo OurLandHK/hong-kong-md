@@ -3,6 +3,8 @@ import { readdir, readFile } from 'fs/promises';
 import { resolve, join, basename } from 'path';
 import matter from 'gray-matter';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const categoryMapping: Record<string, string> = {
   history: 'History',
   geography: 'Geography',
@@ -40,7 +42,7 @@ export const GET: APIRoute = async () => {
         searchIndex.push({
           t: data.title || name,
           d: data.description || '',
-          u: `/${slug}/${name}`,
+          u: `${base}/${slug}/${name}`,
           tags: data.tags || [],
           lang: 'zh-HK',
         });
@@ -58,7 +60,7 @@ export const GET: APIRoute = async () => {
         searchIndex.push({
           t: data.title || name,
           d: data.description || '',
-          u: `/en/${slug}/${name}`,
+          u: `${base}/en/${slug}/${name}`,
           tags: data.tags || [],
           lang: 'en',
         });

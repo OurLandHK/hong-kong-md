@@ -46,7 +46,8 @@ const isEn = lang === 'en';
         lifestyle: '🏮 生活',
       };
       try {
-        const res = await fetch('/api/articles.json');
+        var _base = document.documentElement.dataset.base || '/';
+        const res = await fetch(_base + 'api/articles.json');
         if (res.ok) {
           const raw = await res.json();
           articles = raw
@@ -56,9 +57,12 @@ const isEn = lang === 'en';
             .map(function (a) {
               var u = a.url
                 .replace('https://hongkong.md', '')
+                .replace('https://ourlandhk.github.io/hong-kong-md', '')
                 .replace(/^\/([^\/]+)/, function (m, p) {
                   return '/' + p.toLowerCase();
                 });
+              // Ensure base prefix
+              if (!u.startsWith(_base)) u = _base.replace(/\/$/, '') + u;
               return {
                 title: a.title,
                 url: u,

@@ -47,13 +47,21 @@ const jfClass = [
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} data-base={import.meta.env.BASE_URL}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      href={`${import.meta.env.BASE_URL}favicon.png`}
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href={`${import.meta.env.BASE_URL}favicon.ico`}
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Hong Kong Typography System -->
@@ -73,7 +81,12 @@ const jfClass = [
       />
     </noscript>
     <title>{title} | HongKong.md</title>
-    <link rel="alternate" type="application/rss+xml" title="HongKong.md RSS" href="/rss.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="HongKong.md RSS"
+      href={`${import.meta.env.BASE_URL}rss.xml`}
+    />
     <SEO
       title={title}
       description={description}
@@ -145,7 +158,12 @@ const jfClass = [
       _jf.push(['_setFont', 'jf-kamabit', 'css', '.jf-food h1']);
       _jf.push(['_setFont', 'jf-kamabit', 'alias', 'jf-kamabit']);
       _jf.push(['_setFont', 'jf-kamabit', 'weight', 700]);
-      _jf.push(['_setFont', 'rixingsong-semibold', 'css', '.jf-history h1, .hero-title']);
+      _jf.push([
+        '_setFont',
+        'rixingsong-semibold',
+        'css',
+        '.jf-history h1, .hero-title',
+      ]);
       _jf.push([
         '_setFont',
         'rixingsong-semibold',
@@ -295,10 +313,13 @@ const jfClass = [
       async function _loadSearchIndex() {
         if (_searchIdx) return _searchIdx;
         try {
-          var res = await fetch('/api/search-index.json');
+          var _base = document.documentElement.dataset.base || '/';
+          var res = await fetch(_base + 'api/search-index.json');
           if (res.ok) _searchIdx = await res.json();
           else _searchIdx = [];
-        } catch(e) { _searchIdx = []; }
+        } catch (e) {
+          _searchIdx = [];
+        }
         return _searchIdx;
       }
       function initSearch() {
@@ -431,7 +452,10 @@ const jfClass = [
     <script is:inline>
       // Set .md button href based on current path
       const btn = document.getElementById('md-btn');
-      const pathname = window.location.pathname;
+      const _base = document.documentElement.dataset.base || '/';
+      const pathname = window.location.pathname.startsWith(_base)
+        ? window.location.pathname.slice(_base.replace(/\/$/, '').length)
+        : window.location.pathname;
       const ghBase = 'https://github.com/hongkong-md-org/hongkong-md/blob/main';
 
       let target = '/README.md'; // Default fallback
@@ -439,6 +463,7 @@ const jfClass = [
       // Handle special pages
       if (
         pathname === '/' ||
+        pathname === '' ||
         pathname === '/en' ||
         pathname === '/en/' ||
         pathname === '/index.html'
@@ -525,10 +550,13 @@ const jfClass = [
     --border-soft: 1px solid rgba(148, 163, 184, 0.2);
     /* === Hong Kong Typography System === */
     --font-title: 'Noto Serif TC', 'Source Han Serif TC', 'PMingLiU', serif;
-    --font-reading: 'jf-jinxuanlatte', 'Noto Sans TC', 'Source Han Sans TC', sans-serif;
-    --font-interface: 'Noto Sans TC', 'Source Han Sans TC', 'PingFang TC', sans-serif;
+    --font-reading:
+      'jf-jinxuanlatte', 'Noto Sans TC', 'Source Han Sans TC', sans-serif;
+    --font-interface:
+      'Noto Sans TC', 'Source Han Sans TC', 'PingFang TC', sans-serif;
     --font-quote: 'jf-lanyangming', 'Noto Serif TC', serif;
-    --font-mono: 'SF Mono', 'Fira Code', 'Source Code Pro', 'Consolas', monospace;
+    --font-mono:
+      'SF Mono', 'Fira Code', 'Source Code Pro', 'Consolas', monospace;
     /* Legacy compatibility */
     --font-editorial: var(--font-title);
     --title-display-size: clamp(2.25rem, 5vw, 3.2rem);
@@ -586,7 +614,9 @@ const jfClass = [
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     /* 優化中文字體顯示 */
-    font-feature-settings: "kern" 1, "liga" 1;
+    font-feature-settings:
+      'kern' 1,
+      'liga' 1;
   }
 
   /* Hong Kong Typography: 標題字體層級 */

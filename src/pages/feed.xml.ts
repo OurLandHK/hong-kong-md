@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 
 // RSS Feed generation for HongKong.md
 export async function GET() {
-  const siteUrl = 'https://hongkong.md';
+  const siteUrl = 'https://ourlandhk.github.io/hong-kong-md';
 
   // Category mapping to folder names
   const categoryMapping: Record<string, string> = {

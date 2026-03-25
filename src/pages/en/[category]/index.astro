@@ -109,7 +109,9 @@ function resolveWikilinks(md: string, currentCategory: string) {
         .replace(/^_/, '')
         .replace(/ Hub$/, '')
         .toLowerCase();
-      return bold ? `[**${label}**](/en/${catName})` : `[${label}](/en/${catName})`;
+      return bold
+        ? `[**${label}**](/en/${catName})`
+        : `[${label}](/en/${catName})`;
     }
     const matchArticle = articles.find(
       (a: any) =>
@@ -130,9 +132,8 @@ function resolveWikilinks(md: string, currentCategory: string) {
     (_, target, display) => resolveOne(target, display, true),
   );
   // Second pass: remaining [[X]]
-  md = md.replace(
-    /\[\[([^\]|]+?)(?:\|([^\]]+?))?\]\]/g,
-    (_, target, display) => resolveOne(target, display),
+  md = md.replace(/\[\[([^\]|]+?)(?:\|([^\]]+?))?\]\]/g, (_, target, display) =>
+    resolveOne(target, display),
   );
   return md;
 }
@@ -184,7 +185,7 @@ const otherCategories = categories
     <div class="container">
       <!-- Breadcrumb -->
       <nav class="breadcrumb">
-        <a href="/en">Home</a>
+        <a href={`${import.meta.env.BASE_URL}en`}>Home</a>
         <span class="separator">›</span>
         <span class="current">{categoryInfo.name}</span>
       </nav>
@@ -261,7 +262,7 @@ const otherCategories = categories
               </p>
 
               <div class="action-buttons">
-                <a href="/en" class="btn-primary">
+                <a href={`${import.meta.env.BASE_URL}en`} class="btn-primary">
                   Back to Home
                 </a>
                 <a

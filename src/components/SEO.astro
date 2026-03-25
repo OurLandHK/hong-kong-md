@@ -30,7 +30,10 @@ const {
 } = Astro.props;
 
 const fullTitle = `${title} | HongKong.md`;
-const siteUrl = 'https://hongkong.md';
+const siteUrl = new URL(import.meta.env.BASE_URL, Astro.site).href.replace(
+  /\/$/,
+  '',
+);
 const fullImageUrl = new URL(image, siteUrl).href;
 
 // Generate AI-friendly summary from description or content
@@ -61,7 +64,7 @@ const generateJSONLD = () => {
       ...(datePublished && { birthDate: datePublished }),
     };
   }
-  
+
   // Article pages
   if (type === 'article' && datePublished) {
     return {
@@ -90,7 +93,7 @@ const generateJSONLD = () => {
       inLanguage: lang,
       url: url,
       image: {
-        '@type': 'ImageObject', 
+        '@type': 'ImageObject',
         url: fullImageUrl,
         width: 1200,
         height: 630,
@@ -103,15 +106,19 @@ const generateJSONLD = () => {
       ...(category && { articleSection: category }),
     };
   }
-  
+
   // Website root
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: lang === 'en' ? 'HongKong.md — Knowledge Base' : 'HongKong.md - 香港知識庫',
-    description: lang === 'en'
-      ? 'Open-source, AI-friendly knowledge base about Hong Kong — politics, economy, culture, history, geography, and more.'
-      : '讓全世界完整認識香港 - 開源香港知識庫，蒐集關於香港的政治、經濟、文化、歷史、地理等各方面知識。',
+    name:
+      lang === 'en'
+        ? 'HongKong.md — Knowledge Base'
+        : 'HongKong.md - 香港知識庫',
+    description:
+      lang === 'en'
+        ? 'Open-source, AI-friendly knowledge base about Hong Kong — politics, economy, culture, history, geography, and more.'
+        : '讓全世界完整認識香港 - 開源香港知識庫，蒐集關於香港的政治、經濟、文化、歷史、地理等各方面知識。',
     url: siteUrl,
     inLanguage: lang,
     publisher: {
@@ -150,9 +157,10 @@ const organizationLD = {
   name: 'HongKong.md',
   url: siteUrl,
   logo: `${siteUrl}/images/hongkong-social.jpg`,
-  description: lang === 'en'
-    ? 'Open-source, AI-friendly knowledge base about Hong Kong'
-    : '開源、AI-friendly 的香港知識庫',
+  description:
+    lang === 'en'
+      ? 'Open-source, AI-friendly knowledge base about Hong Kong'
+      : '開源、AI-friendly 的香港知識庫',
   foundingDate: '2024',
   sameAs: [
     'https://github.com/hongkong-md-org/hongkong-md',
@@ -172,11 +180,12 @@ const baseKeywords =
   lang === 'en'
     ? 'Hong Kong, knowledge base, Hong Kong history, Hong Kong culture, Hong Kong politics, Hong Kong economy'
     : '香港, Hong Kong, 香港知識庫, 香港歷史, 香港文化, 香港政治, 香港經濟';
-    
-const categoryKeywords = category ? 
-  (lang === 'en' ? 
-    [`Hong Kong ${category}`, `${category} Hong Kong`] : 
-    [`香港${category}`, `${category}香港`]) : [];
+
+const categoryKeywords = category
+  ? lang === 'en'
+    ? [`Hong Kong ${category}`, `${category} Hong Kong`]
+    : [`香港${category}`, `${category}香港`]
+  : [];
 
 const dynamicKeywords = [
   baseKeywords,
@@ -186,25 +195,39 @@ const dynamicKeywords = [
 
 // BreadcrumbList JSON-LD for content pages
 const generateBreadcrumbLD = () => {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const currentPath = new URL(url).pathname;
+  const strippedPath =
+    base && currentPath.startsWith(base)
+      ? currentPath.slice(base.length)
+      : currentPath;
   const isEn = lang === 'en';
-  
+
   // Homepage - no breadcrumb needed
-  if (currentPath === '/' || currentPath === '/en' || currentPath === '/en/') {
+  if (
+    strippedPath === '/' ||
+    strippedPath === '' ||
+    strippedPath === '/en' ||
+    strippedPath === '/en/'
+  ) {
     return null;
   }
-  
+
   const baseItems = [
     {
       '@type': 'ListItem',
       position: 1,
       name: 'HongKong.md',
       item: isEn ? `${siteUrl}/en` : siteUrl,
-    }
+    },
   ];
-  
+
   // Category page (e.g., /history, /en/culture)
-  if (category && (currentPath.endsWith(`/${category}`) || currentPath.endsWith(`/${category}/`))) {
+  if (
+    category &&
+    (currentPath.endsWith(`/${category}`) ||
+      currentPath.endsWith(`/${category}/`))
+  ) {
     return {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
@@ -219,10 +242,12 @@ const generateBreadcrumbLD = () => {
       ],
     };
   }
-  
+
   // Article page
   if (category && type === 'article') {
-    const categoryUrl = isEn ? `${siteUrl}/en/${category}` : `${siteUrl}/${category}`;
+    const categoryUrl = isEn
+      ? `${siteUrl}/en/${category}`
+      : `${siteUrl}/${category}`;
     return {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
@@ -243,7 +268,7 @@ const generateBreadcrumbLD = () => {
       ],
     };
   }
-  
+
   // Other pages (about, contribute, etc.)
   return {
     '@context': 'https://schema.org',
@@ -286,7 +311,9 @@ const breadcrumbLD = generateBreadcrumbLD();
 <link
   rel="alternate"
   type="application/rss+xml"
-  title={lang === 'en' ? 'HongKong.md RSS Feed (English)' : 'HongKong.md RSS 動態消息'}
+  title={lang === 'en'
+    ? 'HongKong.md RSS Feed (English)'
+    : 'HongKong.md RSS 動態消息'}
   href={`${siteUrl}/feed.xml`}
 />
 
@@ -299,33 +326,45 @@ const breadcrumbLD = generateBreadcrumbLD();
 <link rel="dns-prefetch" href="//x.com" />
 
 <!-- Dynamic Language Tags -->
-{(() => {
-  const currentPath = new URL(url).pathname;
-  let zhHref = siteUrl;
-  let enHref = `${siteUrl}/en`;
-  
-  // For specific pages, build proper hreflang URLs
-  if (currentPath !== '/' && currentPath !== '/en' && currentPath !== '/en/') {
-    if (currentPath.startsWith('/en/')) {
-      // Current is English, generate Chinese equivalent
-      enHref = url;
-      const cleanPath = currentPath.replace('/en', '') || '/';
-      zhHref = `${siteUrl}${cleanPath}`;
-    } else {
-      // Current is Chinese, generate English equivalent  
-      zhHref = url;
-      enHref = `${siteUrl}/en${currentPath}`;
+{
+  (() => {
+    const _base = import.meta.env.BASE_URL.replace(/\/$/, '');
+    const currentPath = new URL(url).pathname;
+    const strippedPath =
+      _base && currentPath.startsWith(_base)
+        ? currentPath.slice(_base.length)
+        : currentPath;
+    let zhHref = siteUrl;
+    let enHref = `${siteUrl}/en`;
+
+    // For specific pages, build proper hreflang URLs
+    if (
+      strippedPath !== '/' &&
+      strippedPath !== '' &&
+      strippedPath !== '/en' &&
+      strippedPath !== '/en/'
+    ) {
+      if (strippedPath.startsWith('/en/')) {
+        // Current is English, generate Chinese equivalent
+        enHref = url;
+        const cleanPath = strippedPath.replace('/en', '') || '/';
+        zhHref = `${siteUrl}${cleanPath}`;
+      } else {
+        // Current is Chinese, generate English equivalent
+        zhHref = url;
+        enHref = `${siteUrl}/en${strippedPath}`;
+      }
     }
-  }
-  
-  return (
-    <>
-      <link rel="alternate" hreflang="zh-HK" href={zhHref} />
-      <link rel="alternate" hreflang="en" href={enHref} />
-      <link rel="alternate" hreflang="x-default" href={zhHref} />
-    </>
-  );
-})()}
+
+    return (
+      <>
+        <link rel="alternate" hreflang="zh-HK" href={zhHref} />
+        <link rel="alternate" hreflang="en" href={enHref} />
+        <link rel="alternate" hreflang="x-default" href={zhHref} />
+      </>
+    );
+  })()
+}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
@@ -370,7 +409,10 @@ const breadcrumbLD = generateBreadcrumbLD();
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify(jsonLD, null, 2)} />
-<script type="application/ld+json" set:html={JSON.stringify(organizationLD, null, 2)} />
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(organizationLD, null, 2)}
+/>
 {
   breadcrumbLD && (
     <script

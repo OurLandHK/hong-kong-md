@@ -258,8 +258,10 @@ export function getLangPrefix(lang: Lang): string {
 }
 
 export function getLocaleFromPath(path: string): Lang {
-  if (path.startsWith('/en')) return 'en';
-  if (path.startsWith('/es')) return 'es';
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const p = base && path.startsWith(base) ? path.slice(base.length) : path;
+  if (p.startsWith('/en')) return 'en';
+  if (p.startsWith('/es')) return 'es';
   return 'zh-HK';
 }
 

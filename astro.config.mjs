@@ -5,7 +5,8 @@ import rehypeExternalLinks from 'rehype-external-links';
 import remarkWikilinks from './plugins/remark-wikilinks.mjs';
 
 export default defineConfig({
-  site: 'https://ourlandhk.github.io/hong-kong-md/',
+  site: 'https://ourlandhk.github.io',
+  base: '/hong-kong-md',
   integrations: [
     sitemap({
       changefreq: 'weekly',

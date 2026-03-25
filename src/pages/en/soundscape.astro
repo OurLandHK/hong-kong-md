@@ -37,14 +37,11 @@ const wishlist = [
   lang="en"
 >
   <div class="soundscape-page">
-
     <section class="hero">
       <div class="hero-inner">
         <p class="hero-kicker">🎧 Soundscape</p>
         <h1>Hong Kong Soundscape</h1>
-        <p class="hero-subtitle">
-          Some stories are best told through ears.
-        </p>
+        <p class="hero-subtitle">Some stories are best told through ears.</p>
         <p class="hero-count">{sounds.length} recordings collected</p>
       </div>
     </section>
@@ -53,24 +50,34 @@ const wishlist = [
       <div class="section-inner">
         <h2>🎙️ Sound Library</h2>
         <div class="sound-grid">
-          {sounds.map((sound) => (
-            <div class="sound-card">
-              <div class="sound-icon">{sound.icon}</div>
-              <div class="sound-info">
-                <h3>{sound.location}</h3>
-                <p class="sound-desc">{sound.description}</p>
-                <div class="sound-meta">
-                  <a href={`https://github.com/${sound.contributor}`} target="_blank" rel="noopener" class="contributor">
-                    @{sound.contributor}
-                  </a>
-                  <span class="sound-date">{sound.date}</span>
+          {
+            sounds.map((sound) => (
+              <div class="sound-card">
+                <div class="sound-icon">{sound.icon}</div>
+                <div class="sound-info">
+                  <h3>{sound.location}</h3>
+                  <p class="sound-desc">{sound.description}</p>
+                  <div class="sound-meta">
+                    <a
+                      href={`https://github.com/${sound.contributor}`}
+                      target="_blank"
+                      rel="noopener"
+                      class="contributor"
+                    >
+                      @{sound.contributor}
+                    </a>
+                    <span class="sound-date">{sound.date}</span>
+                  </div>
                 </div>
+                <audio controls preload="none" class="sound-player">
+                  <source
+                    src={`${import.meta.env.BASE_URL}assets/sounds/${sound.file}`}
+                    type="audio/mpeg"
+                  />
+                </audio>
               </div>
-              <audio controls preload="none" class="sound-player">
-                <source src={`/assets/sounds/${sound.file}`} type="audio/mpeg" />
-              </audio>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </section>
@@ -79,15 +86,18 @@ const wishlist = [
       <div class="section-inner">
         <h2>📋 Wishlist</h2>
         <p class="wishlist-intro">
-          These are the Hong Kong soundscapes we'd love to collect. If you happen to have one nearby, record it and contribute!
+          These are the Hong Kong soundscapes we'd love to collect. If you
+          happen to have one nearby, record it and contribute!
         </p>
         <div class="wishlist-grid">
-          {wishlist.map((item) => (
-            <div class="wishlist-card">
-              <span class="wishlist-icon">{item.icon}</span>
-              <p class="wishlist-text">{item.text}</p>
-            </div>
-          ))}
+          {
+            wishlist.map((item) => (
+              <div class="wishlist-card">
+                <span class="wishlist-icon">{item.icon}</span>
+                <p class="wishlist-text">{item.text}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -96,18 +106,28 @@ const wishlist = [
       <div class="section-inner">
         <h2>🎤 Contribute Your Recordings</h2>
         <p>
-          Record 30 seconds to 2 minutes of Hong Kong soundscape with your phone, convert to MP3, and open a PR.<br />
-          Not familiar with GitHub? Just <a href="mailto:cheyu.wu@monoame.com">email us</a> with the recording and location description.
+          Record 30 seconds to 2 minutes of Hong Kong soundscape with your
+          phone, convert to MP3, and open a PR.<br />
+          Not familiar with GitHub? Just <a href="mailto:cheyu.wu@monoame.com"
+            >email us</a
+          > with the recording and location description.
         </p>
         <div class="cta-steps">
-          <div class="step"><span class="step-num">1</span> Record the sound (30s – 2min)</div>
-          <div class="step"><span class="step-num">2</span> Convert to MP3 (128kbps+)</div>
-          <div class="step"><span class="step-num">3</span> Open a PR or email us</div>
+          <div class="step">
+            <span class="step-num">1</span> Record the sound (30s – 2min)
+          </div>
+          <div class="step">
+            <span class="step-num">2</span> Convert to MP3 (128kbps+)
+          </div>
+          <div class="step">
+            <span class="step-num">3</span> Open a PR or email us
+          </div>
         </div>
-        <a href="/en/contribute" class="cta-btn">Go to Contribution Page →</a>
+        <a href={`${import.meta.env.BASE_URL}en/contribute`} class="cta-btn"
+          >Go to Contribution Page →</a
+        >
       </div>
     </section>
-
   </div>
 </Layout>
 
@@ -125,7 +145,7 @@ const wishlist = [
   }
   .hero-kicker {
     font-size: 0.9rem;
-    color: #ABC468;
+    color: #abc468;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
@@ -192,7 +212,7 @@ const wishlist = [
     margin-bottom: 1rem;
   }
   .contributor {
-    color: #ABC468;
+    color: #abc468;
     text-decoration: none;
   }
   .contributor:hover {
@@ -249,7 +269,7 @@ const wishlist = [
     margin-bottom: 1.5rem;
   }
   .contribute-cta a:not(.cta-btn) {
-    color: #ABC468;
+    color: #abc468;
   }
   .cta-steps {
     display: flex;
@@ -270,7 +290,7 @@ const wishlist = [
     height: 28px;
     border-radius: 50%;
     background: rgba(171, 196, 104, 0.15);
-    color: #ABC468;
+    color: #abc468;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -284,7 +304,7 @@ const wishlist = [
     background: rgba(171, 196, 104, 0.12);
     border: 1px solid rgba(171, 196, 104, 0.3);
     border-radius: 8px;
-    color: #ABC468;
+    color: #abc468;
     text-decoration: none;
     font-size: 0.95rem;
     transition: all 0.2s;
@@ -295,7 +315,12 @@ const wishlist = [
   }
 
   @media (max-width: 600px) {
-    .hero h1 { font-size: 2rem; }
-    .cta-steps { flex-direction: column; align-items: center; }
+    .hero h1 {
+      font-size: 2rem;
+    }
+    .cta-steps {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 </style>

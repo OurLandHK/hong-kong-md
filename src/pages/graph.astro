@@ -4,6 +4,8 @@ import { getCollection } from 'astro:content';
 import { readdir, readFile } from 'fs/promises';
 import { resolve, join } from 'path';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const categories = [
   'history',
   'geography',
@@ -118,7 +120,12 @@ if (allEnArticles.length === 0) {
 }
 
 // Center node
-nodes.push({ id: 'hongkong', label: '🇭🇰 HongKong.md', group: 'center', size: 30 });
+nodes.push({
+  id: 'hongkong',
+  label: '🇭🇰 HongKong.md',
+  group: 'center',
+  size: 30,
+});
 
 // SSOT concept node
 nodes.push({
@@ -137,7 +144,7 @@ nodes.push({
   group: 'special',
   color: '#6366f1',
   size: 14,
-  url: '/about',
+  url: `${base}/about`,
 });
 nodes.push({
   id: 'contribute',
@@ -145,7 +152,7 @@ nodes.push({
   group: 'special',
   color: '#22c55e',
   size: 14,
-  url: '/contribute',
+  url: `${base}/contribute`,
 });
 nodes.push({
   id: 'quotes',
@@ -153,7 +160,7 @@ nodes.push({
   group: 'special',
   color: '#f59e0b',
   size: 12,
-  url: '/about',
+  url: `${base}/about`,
 });
 nodes.push({
   id: 'editorial',
@@ -187,7 +194,7 @@ for (const cat of categories) {
     group: cat,
     color: categoryColors[cat],
     size: 20,
-    url: `/${cat}`,
+    url: `${base}/${cat}`,
   });
   edges.push({ source: 'hongkong', target: cat });
 
@@ -205,7 +212,7 @@ for (const cat of categories) {
       group: cat,
       color: categoryColors[cat],
       size: 10,
-      url: `/${cat}/${encodeURIComponent(slug)}`,
+      url: `${base}/${cat}/${encodeURIComponent(slug)}`,
     });
     edges.push({ source: cat, target: nodeId });
 
@@ -232,7 +239,7 @@ for (const cat of categories) {
       group: cat,
       color: categoryColors[cat],
       size: 8,
-      url: `/en/${cat}/${slug}`,
+      url: `${base}/en/${cat}/${slug}`,
     });
     edges.push({ source: cat, target: nodeId });
   }
@@ -341,7 +348,7 @@ const graphData = JSON.stringify({ nodes, edges });
         />
         <span id="search-count" class="search-count"></span>
       </div>
-      <a href="/" class="back">← 回首頁</a>
+      <a href={import.meta.env.BASE_URL} class="back">← 回首頁</a>
     </div>
     <div id="graph-container"></div>
     <div id="tooltip" class="tooltip"></div>

@@ -305,7 +305,7 @@ const dataCategories = getCategories(t);
           <div class="comparison-item wrong">
             <div class="svg-container">
               <img
-                src="/assets/svg/ai-hk-wrong.svg"
+                src={`${import.meta.env.BASE_URL}assets/svg/ai-hk-wrong.svg`}
                 alt="AI Generated Hong Kong (Wrong)"
               />
             </div>
@@ -317,7 +317,7 @@ const dataCategories = getCategories(t);
           <div class="comparison-item correct">
             <div class="svg-container">
               <img
-                src="/assets/svg/hk-icon-wiki.svg"
+                src={`${import.meta.env.BASE_URL}assets/svg/hk-icon-wiki.svg`}
                 alt="Correct Hong Kong Shape"
               />
             </div>
@@ -332,7 +332,10 @@ const dataCategories = getCategories(t);
       <div class="svg-grid">
         <div class="svg-card">
           <div class="svg-preview">
-            <img src="/assets/svg/hk-icon-wiki.svg" alt="Hong Kong Icon" />
+            <img
+              src={`${import.meta.env.BASE_URL}assets/svg/hk-icon-wiki.svg`}
+              alt="Hong Kong Icon"
+            />
           </div>
           <div class="svg-info">
             <h3>{t('data.svg.card1.title')}</h3>
@@ -340,7 +343,7 @@ const dataCategories = getCategories(t);
             <p class="svg-meta">Wikimedia Commons · CC</p>
             <div class="svg-actions">
               <a
-                href="/assets/svg/hk-icon-wiki.svg"
+                href={`${import.meta.env.BASE_URL}assets/svg/hk-icon-wiki.svg`}
                 download
                 class="btn btn-primary"
               >
@@ -359,7 +362,7 @@ const dataCategories = getCategories(t);
         <div class="svg-card">
           <div class="svg-preview">
             <img
-              src="/assets/svg/hk-simplemaps.svg"
+              src={`${import.meta.env.BASE_URL}assets/svg/hk-simplemaps.svg`}
               alt="Hong Kong SimpleMaps"
             />
           </div>
@@ -369,7 +372,7 @@ const dataCategories = getCategories(t);
             <p class="svg-meta">SimpleMaps · 5 KB</p>
             <div class="svg-actions">
               <a
-                href="/assets/svg/hk-simplemaps.svg"
+                href={`${import.meta.env.BASE_URL}assets/svg/hk-simplemaps.svg`}
                 download
                 class="btn btn-primary"
               >
@@ -388,7 +391,7 @@ const dataCategories = getCategories(t);
         <div class="svg-card">
           <div class="svg-preview">
             <img
-              src="/assets/svg/hk-location-map.svg"
+              src={`${import.meta.env.BASE_URL}assets/svg/hk-location-map.svg`}
               alt="Hong Kong Location Map"
             />
           </div>
@@ -398,7 +401,7 @@ const dataCategories = getCategories(t);
             <p class="svg-meta">Wikimedia Commons · CC</p>
             <div class="svg-actions">
               <a
-                href="/assets/svg/hk-location-map.svg"
+                href={`${import.meta.env.BASE_URL}assets/svg/hk-location-map.svg`}
                 download
                 class="btn btn-primary"
               >
@@ -417,7 +420,7 @@ const dataCategories = getCategories(t);
         <div class="svg-card">
           <div class="svg-preview">
             <img
-              src="/assets/svg/hk-political-division.svg"
+              src={`${import.meta.env.BASE_URL}assets/svg/hk-political-division.svg`}
               alt="Hong Kong Political Division"
             />
           </div>
@@ -427,7 +430,7 @@ const dataCategories = getCategories(t);
             <p class="svg-meta">Wikimedia Commons · CC</p>
             <div class="svg-actions">
               <a
-                href="/assets/svg/hk-political-division.svg"
+                href={`${import.meta.env.BASE_URL}assets/svg/hk-political-division.svg`}
                 download
                 class="btn btn-primary"
               >
@@ -724,7 +727,7 @@ background-image: url('https://hongkong.md/assets/svg/hk-icon-wiki.svg');
           </div>
         </div>
         <div class="explore-more">
-          <a href="/economy" class="explore-link">
+          <a href={`${import.meta.env.BASE_URL}economy`} class="explore-link">
             {t('data.enterprise.exploreLink')}
           </a>
         </div>
@@ -739,7 +742,7 @@ background-image: url('https://hongkong.md/assets/svg/hk-icon-wiki.svg');
 
       <h3 class="footer-title">{t('data.footer.heading')}</h3>
       <div class="footer-links">
-        <a href="/economy" class="footer-link">
+        <a href={`${import.meta.env.BASE_URL}economy`} class="footer-link">
           <span class="footer-icon">📈</span>
           <div class="footer-text">
             <span class="footer-name">{t('data.footer.link1.name')}</span>
@@ -748,7 +751,7 @@ background-image: url('https://hongkong.md/assets/svg/hk-icon-wiki.svg');
             </span>
           </div>
         </a>
-        <a href="/graph" class="footer-link">
+        <a href={`${import.meta.env.BASE_URL}graph`} class="footer-link">
           <span class="footer-icon">🕸️</span>
           <div class="footer-text">
             <span class="footer-name">{t('data.footer.link2.name')}</span>
@@ -757,7 +760,7 @@ background-image: url('https://hongkong.md/assets/svg/hk-icon-wiki.svg');
             </span>
           </div>
         </a>
-        <a href="/contribute" class="footer-link">
+        <a href={`${import.meta.env.BASE_URL}contribute`} class="footer-link">
           <span class="footer-icon">✋</span>
           <div class="footer-text">
             <span class="footer-name">{t('data.footer.link3.name')}</span>
@@ -1313,9 +1316,10 @@ background-image: url('https://hongkong.md/assets/svg/hk-icon-wiki.svg');
         },
       };
 
+      const _base = document.documentElement.dataset.base || '/';
       const langIsEn =
         document.documentElement.lang === 'en' ||
-        window.location.pathname.startsWith('/en');
+        window.location.pathname.startsWith(_base + 'en');
       const unitAge = langIsEn ? ' yrs' : ' 歲';
       const unitPop = langIsEn ? ' (10K)' : ' 萬人';
 
@@ -1431,7 +1435,8 @@ background-image: url('https://hongkong.md/assets/svg/hk-icon-wiki.svg');
     async function copySVG(filename, btn) {
       const currentLang = lang;
       try {
-        const res = await fetch('/assets/svg/' + filename);
+        var _base = document.documentElement.dataset.base || '/';
+        const res = await fetch(_base + 'assets/svg/' + filename);
         const text = await res.text();
         await navigator.clipboard.writeText(text);
         const orig = btn.textContent;

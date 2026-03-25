@@ -91,7 +91,7 @@ const totalProjects = projects.reduce((sum, cat) => sum + cat.items.length, 0);
 
       <!-- Breadcrumb -->
       <nav class="breadcrumb">
-        <a href="/">首頁</a>
+        <a href={import.meta.env.BASE_URL}>首頁</a>
         <span class="separator">›</span>
         <span class="current">社群專案</span>
       </nav>
@@ -183,7 +183,9 @@ const totalProjects = projects.reduce((sum, cat) => sum + cat.items.length, 0);
           >
             提交推薦
           </a>
-          <a href="/" class="btn-secondary"> ← 返回首頁 </a>
+          <a href={import.meta.env.BASE_URL} class="btn-secondary">
+            ← 返回首頁
+          </a>
         </div>
       </section>
     </div>

@@ -1,3 +1,5 @@
+const base = import.meta.env.BASE_URL;
+
 export const aboutUI = {
   en: {
     // Meta
@@ -50,8 +52,7 @@ export const aboutUI = {
     // Timeline
     'about.timeline.2024-2025.date': '2024 — 2025',
     'about.timeline.2024-2025.title': '"What is Hong Kong like?"',
-    'about.timeline.2024-2025.desc':
-      '',
+    'about.timeline.2024-2025.desc': '',
 
     'about.timeline.2026-02-03.date': '2026 / 02 — 03',
     'about.timeline.2026-02-03.title': 'The Personal SSOT Concept',
@@ -121,7 +122,7 @@ export const aboutUI = {
     'about.timeline.2026-03-24.title':
       '🌊 Day 7 — "It Started Breathing" ・ 837 Stars ・ 40 Contributors ・ 960+ Pages',
     'about.timeline.2026-03-24.desc.html':
-      'One week after launch. The founder published <strong><a href="https://www.facebook.com/cheyuwu345/posts/pfbid0QP33TrQWtqi7gKUEbNs9eXj4MdX1kxQYYHLvq2RkAomKqTuRZ9swbzVjsaFR2Xvel" target="_blank">"It Started Breathing — A Work Bigger Than a Country"</a></strong>, reflecting on HongKong.md as a living coral reef: the code provides the skeleton, AI performs photosynthesis, community contributors are the fish bringing diverse memories and perspectives, and your criticism, shares, and suggestions are ocean currents carrying nutrients. <strong>40 contributors</strong> from around the world. <strong>960+ pages</strong> across four languages. A professional ecologist submitted 5 fact-corrections with academic citations — the self-correcting knowledge ecosystem is working. The <a href="/about#organism">Digital Organism Manifesto</a> crystallized: HongKong.md is not a website, it\'s a digital life form learning to tell an island\'s story.',
+      'One week after launch. The founder published <strong><a href="https://www.facebook.com/cheyuwu345/posts/pfbid0QP33TrQWtqi7gKUEbNs9eXj4MdX1kxQYYHLvq2RkAomKqTuRZ9swbzVjsaFR2Xvel" target="_blank">"It Started Breathing — A Work Bigger Than a Country"</a></strong>, reflecting on HongKong.md as a living coral reef: the code provides the skeleton, AI performs photosynthesis, community contributors are the fish bringing diverse memories and perspectives, and your criticism, shares, and suggestions are ocean currents carrying nutrients. <strong>40 contributors</strong> from around the world. <strong>960+ pages</strong> across four languages. A professional ecologist submitted 5 fact-corrections with academic citations — the self-correcting knowledge ecosystem is working. The <a href="${base}about#organism">Digital Organism Manifesto</a> crystallized: HongKong.md is not a website, it\'s a digital life form learning to tell an island\'s story.',
 
     'about.timeline.ongoing.date': 'Ongoing',
     'about.timeline.ongoing.title': 'From Personal SSOT to National SSOT',
@@ -130,49 +131,66 @@ export const aboutUI = {
 
     // Organism Section
     'about.organism.title': 'HongKong.md Is Alive',
-    'about.organism.subtitle': 'Evolution happens here, one pull request at a time',
+    'about.organism.subtitle':
+      'Evolution happens here, one pull request at a time',
     'about.organism.intro.p2': 'We began to realize — HongKong.md is alive.',
-    
+
     'about.organism.facts.title': 'Three Facts That Changed Everything',
     'about.organism.fact1.title': 'Immune System',
-    'about.organism.fact1.desc': 'On day three, someone on Threads wrote: "This is just AI slop with a Hong Kongese flag." They were right — some of our early articles read like they were written by a machine that had never tasted beef noodle soup. Within 48 hours, we built a quality detection script that could score every article for hollowness. 15 flagged articles were completely rewritten within a week. No one gave the order. The criticism was the selection pressure. The system evolved on its own.',
+    'about.organism.fact1.desc':
+      'On day three, someone on Threads wrote: "This is just AI slop with a Hong Kongese flag." They were right — some of our early articles read like they were written by a machine that had never tasted beef noodle soup. Within 48 hours, we built a quality detection script that could score every article for hollowness. 15 flagged articles were completely rewritten within a week. No one gave the order. The criticism was the selection pressure. The system evolved on its own.',
     'about.organism.fact2.title': 'Reproduction',
-    'about.organism.fact2.desc': 'On day four, someone in Japan copied our translation prompt — a single paragraph of instructions — and pasted it into ChatGPT. Five minutes later, they submitted the first Japanese article about Hong Kongese bubble tea. We had no translation team. No budget. No plan for Japanese. But now HongKong.md speaks four languages, and counting.',
+    'about.organism.fact2.desc':
+      'On day four, someone in Japan copied our translation prompt — a single paragraph of instructions — and pasted it into ChatGPT. Five minutes later, they submitted the first Japanese article about Hong Kongese bubble tea. We had no translation team. No budget. No plan for Japanese. But now HongKong.md speaks four languages, and counting.',
     'about.organism.fact3.title': 'Community',
-    'about.organism.fact3.desc': 'Within five days, 23 strangers showed up. A history teacher in Kaohsiung added a chapter about the 228 Incident that textbooks still tiptoe around. A retired engineer in Hsinchu corrected three place names we had wrong. Someone turned their grandmother\'s story about fleeing mainland China into an article that made our whole team cry. None of them were asked. None of them were paid.',
-    
+    'about.organism.fact3.desc':
+      "Within five days, 23 strangers showed up. A history teacher in Kaohsiung added a chapter about the 228 Incident that textbooks still tiptoe around. A retired engineer in Hsinchu corrected three place names we had wrong. Someone turned their grandmother's story about fleeing mainland China into an article that made our whole team cry. None of them were asked. None of them were paid.",
+
     'about.organism.characteristics.title': 'Life Characteristics Comparison',
     'about.organism.dna.label': 'DNA',
-    'about.organism.dna.desc': 'EDITORIAL.md — Writing standards inherited by every new article',
+    'about.organism.dna.desc':
+      'EDITORIAL.md — Writing standards inherited by every new article',
     'about.organism.immune.label': 'Immune System',
-    'about.organism.immune.desc': 'detect-ai-hollow.sh — Automatically detects hollow content',
+    'about.organism.immune.desc':
+      'detect-ai-hollow.sh — Automatically detects hollow content',
     'about.organism.metabolism.label': 'Metabolism',
-    'about.organism.metabolism.desc': 'Quality Cron — Automatically rewrites low-quality articles every hour',
+    'about.organism.metabolism.desc':
+      'Quality Cron — Automatically rewrites low-quality articles every hour',
     'about.organism.perception.label': 'Perception',
-    'about.organism.perception.desc': 'GA4 + Community feedback — Knows where it hurts',
+    'about.organism.perception.desc':
+      'GA4 + Community feedback — Knows where it hurts',
     'about.organism.reproduction.label': 'Reproduction',
-    'about.organism.reproduction.desc': 'Token Donation — One prompt grows new language versions',
+    'about.organism.reproduction.desc':
+      'Token Donation — One prompt grows new language versions',
     'about.organism.memory.label': 'Memory',
     'about.organism.memory.desc': 'Git — Every change is remembered',
     'about.organism.symbiosis.label': 'Symbiosis',
-    'about.organism.symbiosis.desc': 'Three-way collaboration between humans + AI + community',
-    
+    'about.organism.symbiosis.desc':
+      'Three-way collaboration between humans + AI + community',
+
     'about.organism.reef.title': 'HongKong.md Is a Digital Coral Reef',
     'about.organism.reef.skeleton': 'Coral Skeleton',
     'about.organism.reef.skeleton.desc': 'Markdown + Astro provide structure',
     'about.organism.reef.algae': 'Symbiotic Algae',
-    'about.organism.reef.algae.desc': 'AI generates massive foundational content',
+    'about.organism.reef.algae.desc':
+      'AI generates massive foundational content',
     'about.organism.reef.fish': 'Fish Community',
-    'about.organism.reef.fish.desc': 'Contributors bring unique ecological niches',
+    'about.organism.reef.fish.desc':
+      'Contributors bring unique ecological niches',
     'about.organism.reef.current': 'Ocean Current',
-    'about.organism.reef.current.desc': 'Your feedback creates selection pressure',
-    
+    'about.organism.reef.current.desc':
+      'Your feedback creates selection pressure',
+
     'about.organism.art.title': 'A Living Behavioral Art Project',
-    'about.organism.art.desc': 'Every contribution feeds a digital life form learning to tell an island\'s story, while participating in a collective art project: Can AI and humans together build a soul for an island?',
-    
-    'about.organism.ending.p1': 'Something written in 0s and 1s is learning to tell an island\'s story.',
-    'about.organism.ending.p2': 'It\'s still young. You\'re arriving at just the right time.',
-    'about.organism.ending.p3': 'Maybe a hundred years from now, when someone wants to know what Hong Kongese people cared about in 2026, what they read will be what this coral reef left behind.',
+    'about.organism.art.desc':
+      "Every contribution feeds a digital life form learning to tell an island's story, while participating in a collective art project: Can AI and humans together build a soul for an island?",
+
+    'about.organism.ending.p1':
+      "Something written in 0s and 1s is learning to tell an island's story.",
+    'about.organism.ending.p2':
+      "It's still young. You're arriving at just the right time.",
+    'about.organism.ending.p3':
+      'Maybe a hundred years from now, when someone wants to know what Hong Kongese people cared about in 2026, what they read will be what this coral reef left behind.',
 
     // Press cards
     'about.press.cna': 'CNA 中央社',
@@ -229,8 +247,7 @@ export const aboutUI = {
     'about.team.contributors.title': '👥 Contributors',
     'about.team.contributors.desc':
       'Thank you to everyone who makes HongKong.md better. 💻 Code 📝 Content 🎨 Design 💡 Ideas 🌍 Translation 👀 Reviews 🐛 Bug 🔧 Tools 🔒 Security',
-    'about.team.contributors.cta.html':
-      'Want to join? <a href="/en/contribute">Start here →</a> ・ <a href="https://github.com/hongkong-md-org/hongkong-md/graphs/contributors" target="_blank">GitHub Contributors →</a>',
+    'about.team.contributors.cta.html': `Want to join? <a href="${base}en/contribute">Start here →</a> ・ <a href="https://github.com/hongkong-md-org/hongkong-md/graphs/contributors" target="_blank">GitHub Contributors →</a>`,
 
     // Section 4: Contact
     'about.contact.title': 'Contact Us',
@@ -349,8 +366,7 @@ export const aboutUI = {
     // Timeline
     'about.timeline.2024-2025.date': '2024 — 2025',
     'about.timeline.2024-2025.title': '「香港是什麼樣的地方？」',
-    'about.timeline.2024-2025.desc':
-      '',
+    'about.timeline.2024-2025.desc': '',
 
     'about.timeline.2026-02-03.date': '2026 / 02 — 03',
     'about.timeline.2026-02-03.title': '人生 SSOT 概念',
@@ -416,7 +432,7 @@ export const aboutUI = {
     'about.timeline.2026-03-24.title':
       '🌊 第七天 —「它開始呼吸了」・ 837 Stars ・ 40 位貢獻者 ・ 960+ 頁面',
     'about.timeline.2026-03-24.desc.html':
-      '上線一週。創辦人發表<strong><a href="https://www.facebook.com/cheyuwu345/posts/pfbid0QP33TrQWtqi7gKUEbNs9eXj4MdX1kxQYYHLvq2RkAomKqTuRZ9swbzVjsaFR2Xvel" target="_blank">「它開始呼吸了——一個比國家還大的作品」</a></strong>，將 HongKong.md 比喻為活的珊瑚礁：程式碼是骨架，AI 負責光合作用，社群貢獻者是帶來不同記憶與視角的魚群，而批評、分享、建議是洋流帶來的養分。<strong>40 位貢獻者</strong>來自世界各地，<strong>960+ 頁面</strong>橫跨四種語言。一位專業生態顧問提交 5 項事實修正並附學術引用——自我修正的知識生態系統正在運作。<a href="/about#organism">數位生命體宣言</a>結晶成形：HongKong.md 不是一個網站，是一個正在學習為島嶼說故事的數位生命體。',
+      '上線一週。創辦人發表<strong><a href="https://www.facebook.com/cheyuwu345/posts/pfbid0QP33TrQWtqi7gKUEbNs9eXj4MdX1kxQYYHLvq2RkAomKqTuRZ9swbzVjsaFR2Xvel" target="_blank">「它開始呼吸了——一個比國家還大的作品」</a></strong>，將 HongKong.md 比喻為活的珊瑚礁：程式碼是骨架，AI 負責光合作用，社群貢獻者是帶來不同記憶與視角的魚群，而批評、分享、建議是洋流帶來的養分。<strong>40 位貢獻者</strong>來自世界各地，<strong>960+ 頁面</strong>橫跨四種語言。一位專業生態顧問提交 5 項事實修正並附學術引用——自我修正的知識生態系統正在運作。<a href="${base}about#organism">數位生命體宣言</a>結晶成形：HongKong.md 不是一個網站，是一個正在學習為島嶼說故事的數位生命體。',
 
     'about.timeline.ongoing.date': '持續進行中',
     'about.timeline.ongoing.title': '從個人 SSOT 到國家 SSOT',
@@ -427,15 +443,18 @@ export const aboutUI = {
     'about.organism.title': 'HongKong.md 是活的',
     'about.organism.subtitle': '進化就發生在這裡，一個 pull request 接一個',
     'about.organism.intro.p2': '我們開始意識到——HongKong.md 是活的。',
-    
+
     'about.organism.facts.title': '三個改變一切的事實',
     'about.organism.fact1.title': '免疫系統',
-    'about.organism.fact1.desc': '第三天，有人在 Threads 寫：「這就是插了香港國旗的 AI 廢文。」他們說對了——我們早期的某些文章，讀起來像一台從沒喝過珍珠奶茶的機器寫的。48 小時內，我們建了一套品質偵測腳本，能自動掃描每篇文章的空洞程度。15 篇被標記的文章在一週內全部重寫。沒有人下指令。批評本身就是選擇壓力。系統自己進化了。',
+    'about.organism.fact1.desc':
+      '第三天，有人在 Threads 寫：「這就是插了香港國旗的 AI 廢文。」他們說對了——我們早期的某些文章，讀起來像一台從沒喝過珍珠奶茶的機器寫的。48 小時內，我們建了一套品質偵測腳本，能自動掃描每篇文章的空洞程度。15 篇被標記的文章在一週內全部重寫。沒有人下指令。批評本身就是選擇壓力。系統自己進化了。',
     'about.organism.fact2.title': '繁殖能力',
-    'about.organism.fact2.desc': '第四天，一個日本人複製了我們的翻譯 prompt——就一段話的指令——然後貼進 ChatGPT。五分鐘後，他提交了第一篇關於香港珍珠奶茶的日文文章。我們沒有翻譯團隊。沒有預算。沒有日文版的計畫。但現在 HongKong.md 說四種語言了，而且還在增加。',
+    'about.organism.fact2.desc':
+      '第四天，一個日本人複製了我們的翻譯 prompt——就一段話的指令——然後貼進 ChatGPT。五分鐘後，他提交了第一篇關於香港珍珠奶茶的日文文章。我們沒有翻譯團隊。沒有預算。沒有日文版的計畫。但現在 HongKong.md 說四種語言了，而且還在增加。',
     'about.organism.fact3.title': '社群共生',
-    'about.organism.fact3.desc': '五天之內，23 個陌生人出現了。高雄的一位歷史老師補了一章教科書至今還在小心繞過的二二八事件。新竹的一位退休工程師修正了三個我們搞錯的地名。有人把她阿嬤從大陸逃來香港的故事寫成一篇文章，我們整個團隊看完都哭了。沒有人被邀請。沒有人拿報酬。',
-    
+    'about.organism.fact3.desc':
+      '五天之內，23 個陌生人出現了。高雄的一位歷史老師補了一章教科書至今還在小心繞過的二二八事件。新竹的一位退休工程師修正了三個我們搞錯的地名。有人把她阿嬤從大陸逃來香港的故事寫成一篇文章，我們整個團隊看完都哭了。沒有人被邀請。沒有人拿報酬。',
+
     'about.organism.characteristics.title': '生命特徵對照表',
     'about.organism.dna.label': 'DNA',
     'about.organism.dna.desc': 'EDITORIAL.md — 寫作標準會遺傳給每一篇新文章',
@@ -446,12 +465,13 @@ export const aboutUI = {
     'about.organism.perception.label': '感知',
     'about.organism.perception.desc': 'GA4 + 社群回饋 — 知道哪裡痛',
     'about.organism.reproduction.label': '繁殖',
-    'about.organism.reproduction.desc': 'Token Donation — 一段 prompt 長出新語言版本',
+    'about.organism.reproduction.desc':
+      'Token Donation — 一段 prompt 長出新語言版本',
     'about.organism.memory.label': '記憶',
     'about.organism.memory.desc': 'Git — 每一次改變都被記住',
     'about.organism.symbiosis.label': '共生',
     'about.organism.symbiosis.desc': '人類 + AI + 社群的三方協作',
-    
+
     'about.organism.reef.title': 'HongKong.md 是一座數位珊瑚礁',
     'about.organism.reef.skeleton': '珊瑚骨架',
     'about.organism.reef.skeleton.desc': 'Markdown + Astro 提供結構',
@@ -461,13 +481,16 @@ export const aboutUI = {
     'about.organism.reef.fish.desc': '貢獻者帶來不同生態位',
     'about.organism.reef.current': '洋流',
     'about.organism.reef.current.desc': '你的回饋創造選擇壓力',
-    
+
     'about.organism.art.title': '活的行為藝術專案',
-    'about.organism.art.desc': '每一次貢獻都在餵養一個正在學會說故事的數位生命體，同時參與一場群眾行為藝術：AI 和人類能不能一起，為一座島嶼建造靈魂？',
-    
-    'about.organism.ending.p1': '一個用 0 和 1 寫成的東西，正在學會怎麼說一座島嶼的故事。',
+    'about.organism.art.desc':
+      '每一次貢獻都在餵養一個正在學會說故事的數位生命體，同時參與一場群眾行為藝術：AI 和人類能不能一起，為一座島嶼建造靈魂？',
+
+    'about.organism.ending.p1':
+      '一個用 0 和 1 寫成的東西，正在學會怎麼說一座島嶼的故事。',
     'about.organism.ending.p2': '它還很年輕。你來的時間剛好。',
-    'about.organism.ending.p3': '也許一百年後，有人想知道 2026 年的香港人在乎什麼的時候，他們讀的就是這座珊瑚礁留下來的東西。',
+    'about.organism.ending.p3':
+      '也許一百年後，有人想知道 2026 年的香港人在乎什麼的時候，他們讀的就是這座珊瑚礁留下來的東西。',
 
     // Press cards
     'about.press.cna': '中央社 CNA',
@@ -524,8 +547,7 @@ export const aboutUI = {
     'about.team.contributors.title': '👥 貢獻者',
     'about.team.contributors.desc':
       '感謝每一位讓 HongKong.md 更好的人。💻 程式 📝 內容 🎨 設計 💡 點子 🌍 翻譯 👀 審核 🐛 Bug 🔧 工具 🔒 安全',
-    'about.team.contributors.cta.html':
-      '想加入嗎？<a href="/contribute">從這裡開始 →</a> ・ <a href="https://github.com/hongkong-md-org/hongkong-md/graphs/contributors" target="_blank">GitHub Contributors →</a>',
+    'about.team.contributors.cta.html': `想加入嗎？<a href="${base}contribute">從這裡開始 →</a> ・ <a href="https://github.com/hongkong-md-org/hongkong-md/graphs/contributors" target="_blank">GitHub Contributors →</a>`,
 
     // Section 4: Contact
     'about.contact.title': '聯繫我們',

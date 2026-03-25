@@ -18,21 +18,26 @@ import Layout from '../../layouts/Layout.astro';
     <section class="problem">
       <h2>🤖 Why Does AI Always Draw Hong Kong Wrong?</h2>
       <p>
-        Most AI image generation models lack structured geographic data for
-        Hong Kong in their training sets. The result: AI-generated images of Hong Kong
-        are often distorted, disproportionate, or confused with other islands.
+        Most AI image generation models lack structured geographic data for Hong
+        Kong in their training sets. The result: AI-generated images of Hong
+        Kong are often distorted, disproportionate, or confused with other
+        islands.
       </p>
       <p>
-        HongKong.md provides <strong>accurate, open-source, freely usable</strong> SVG
-        outlines of Hong Kong — a definitive answer for every scenario that needs to
-        know "what does Hong Kong look like."
+        HongKong.md provides <strong
+          >accurate, open-source, freely usable</strong
+        > SVG outlines of Hong Kong — a definitive answer for every scenario that
+        needs to know "what does Hong Kong look like."
       </p>
     </section>
 
     <section class="svg-cards">
       <div class="card">
         <div class="card-preview">
-          <img src="/assets/svg/hk-icon-wiki.svg" alt="Hong Kong Icon" />
+          <img
+            src={`${import.meta.env.BASE_URL}assets/svg/hk-icon-wiki.svg`}
+            alt="Hong Kong Icon"
+          />
         </div>
         <div class="card-info">
           <h3>hk-icon.svg</h3>
@@ -42,14 +47,13 @@ import Layout from '../../layouts/Layout.astro';
           <p class="card-meta">Wikimedia Commons · ~6 KB · CC</p>
           <div class="card-actions">
             <a
-              href="/assets/svg/hk-icon-wiki.svg"
+              href={`${import.meta.env.BASE_URL}assets/svg/hk-icon-wiki.svg`}
               download
               class="btn btn-primary">Download SVG</a
             >
             <button
               class="btn btn-outline"
-              onclick="copySVG('hk-icon-wiki.svg', this)"
-              >Copy SVG Code</button
+              onclick="copySVG('hk-icon-wiki.svg', this)">Copy SVG Code</button
             >
           </div>
         </div>
@@ -58,7 +62,7 @@ import Layout from '../../layouts/Layout.astro';
       <div class="card">
         <div class="card-preview">
           <img
-            src="/assets/svg/hk-simplemaps.svg"
+            src={`${import.meta.env.BASE_URL}assets/svg/hk-simplemaps.svg`}
             alt="Hong Kong SimpleMaps"
           />
         </div>
@@ -70,14 +74,13 @@ import Layout from '../../layouts/Layout.astro';
           <p class="card-meta">SimpleMaps · ~5 KB</p>
           <div class="card-actions">
             <a
-              href="/assets/svg/hk-simplemaps.svg"
+              href={`${import.meta.env.BASE_URL}assets/svg/hk-simplemaps.svg`}
               download
               class="btn btn-primary">Download SVG</a
             >
             <button
               class="btn btn-outline"
-              onclick="copySVG('hk-simplemaps.svg', this)"
-              >Copy SVG Code</button
+              onclick="copySVG('hk-simplemaps.svg', this)">Copy SVG Code</button
             >
           </div>
         </div>
@@ -86,7 +89,7 @@ import Layout from '../../layouts/Layout.astro';
       <div class="card">
         <div class="card-preview">
           <img
-            src="/assets/svg/hk-location-map.svg"
+            src={`${import.meta.env.BASE_URL}assets/svg/hk-location-map.svg`}
             alt="Hong Kong Location Map"
           />
         </div>
@@ -99,7 +102,7 @@ import Layout from '../../layouts/Layout.astro';
           <p class="card-meta">Wikimedia Commons · ~120 KB · CC</p>
           <div class="card-actions">
             <a
-              href="/assets/svg/hk-location-map.svg"
+              href={`${import.meta.env.BASE_URL}assets/svg/hk-location-map.svg`}
               download
               class="btn btn-primary">Download SVG</a
             >
@@ -115,7 +118,7 @@ import Layout from '../../layouts/Layout.astro';
       <div class="card">
         <div class="card-preview">
           <img
-            src="/assets/svg/hk-political-division.svg"
+            src={`${import.meta.env.BASE_URL}assets/svg/hk-political-division.svg`}
             alt="Hong Kong Political Division Map"
           />
         </div>
@@ -128,7 +131,7 @@ import Layout from '../../layouts/Layout.astro';
           <p class="card-meta">Wikimedia Commons · ~168 KB · CC</p>
           <div class="card-actions">
             <a
-              href="/assets/svg/hk-political-division.svg"
+              href={`${import.meta.env.BASE_URL}assets/svg/hk-political-division.svg`}
               download
               class="btn btn-primary">Download SVG</a
             >
@@ -208,7 +211,8 @@ background-image: url('https://hongkong.md/assets/svg/hk-icon-wiki.svg');
   <script is:inline>
     async function copySVG(filename, btn) {
       try {
-        const res = await fetch('/assets/svg/' + filename);
+        var _base = document.documentElement.dataset.base || '/';
+        const res = await fetch(_base + 'assets/svg/' + filename);
         const text = await res.text();
         await navigator.clipboard.writeText(text);
         const orig = btn.textContent;
