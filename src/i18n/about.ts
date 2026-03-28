@@ -19,10 +19,6 @@ export const aboutUI = {
     'about.naming.symbol.title': 'Symbolic Level',
     'about.naming.symbol.desc.html':
       " happens to be Moldova's country-code top-level domain. Hong Kong + Markdown = connecting the world through open-source spirit.",
-    'about.naming.lucky.icon': '✨',
-    'about.naming.lucky.title': 'A Lucky Coincidence',
-    'about.naming.lucky.desc':
-      'Surprisingly, no one had claimed the hongkong.md domain yet. Perhaps the universe was telling us it was time to make this happen.',
 
     // Stats
     'about.stats.pages.number': '960+',
@@ -335,10 +331,6 @@ export const aboutUI = {
     'about.naming.symbol.title': '象徵層面',
     'about.naming.symbol.desc.html':
       ' 恰好是摩爾多瓦（Moldova）的國碼頂級域名。Hong Kong + Markdown = 用開源精神連結世界。',
-    'about.naming.lucky.icon': '✨',
-    'about.naming.lucky.title': '偶然的幸運',
-    'about.naming.lucky.desc':
-      '令人驚訝的是，hongkong.md 這個域名居然沒有人搶先買下。或許是宇宙在告訴我們，這件事該做了。',
 
     // Stats
     'about.stats.pages.number': '960+',
