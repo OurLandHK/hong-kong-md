@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ProticoScript from '../components/ProticoScript.astro';
+
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -305,19 +305,14 @@ const t = useTranslations(lang);
                     rel="noopener noreferrer"
                     class="sponsor-logo-link"
                   >
-                    <img
-                      src={`${import.meta.env.BASE_URL}images/justfont-logo.svg`}
-                      alt="justfont"
-                      class="sponsor-logo-img"
-                      style="height: 28px;"
-                    />
+
                   </a>
                   <div class="sponsor-story">
                     <p class="sponsor-contribution-title">
-                      {t('about.sponsors.justfont.story.title')}
+                      {t('about.sponsors.placeholder.story.title')}
                     </p>
                     <p class="sponsor-contribution">
-                      {t('about.sponsors.justfont.story.desc')}
+                      {t('about.sponsors.placeholder.story.desc')}
                     </p>
                   </div>
                 </div>
@@ -332,15 +327,6 @@ const t = useTranslations(lang);
               <p class="tier-perks">
                 {t('about.sponsors.tier.community.perks')}
               </p>
-              <div class="tier-logos">
-                <a
-                  href="https://protico.io"
-                  target="_blank"
-                  class="supporter-link"
-                >
-                  <span set:html={t('about.sponsors.protico.text.html')} />
-                </a>
-              </div>
             </div>
 
             <div class="tier">
@@ -382,47 +368,6 @@ const t = useTranslations(lang);
               >
                 {t('about.sponsors.cta.github')}
               </a>
-            </div>
-            <div class="eth-donate">
-              <p class="eth-label">{t('about.sponsors.eth.label')}</p>
-              <div class="eth-address-box">
-                <span class="eth-icon">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 256 417"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M127.961 0l-2.795 9.5v275.668l2.795 2.79 127.962-75.638z"
-                      fill="#343434"></path>
-                    <path
-                      d="M127.962 0L0 212.32l127.962 75.639V154.158z"
-                      fill="#8C8C8C"></path>
-                    <path
-                      d="M127.961 312.187l-1.575 1.92v98.199l1.575 4.6L256 236.587z"
-                      fill="#3C3C3B"></path>
-                    <path d="M127.962 416.905v-104.72L0 236.585z" fill="#8C8C8C"
-                    ></path>
-                    <path
-                      d="M127.961 287.958l127.96-75.637-127.96-58.162z"
-                      fill="#141414"></path>
-                    <path d="M0 212.32l127.96 75.638V154.159z" fill="#393939"
-                    ></path>
-                  </svg>
-                </span>
-                <code class="eth-address" id="eth-address"
-                  >{t('about.sponsors.eth.address')}</code
-                >
-                <button
-                  class="eth-copy-btn"
-                  onclick={`navigator.clipboard.writeText('${t('about.sponsors.eth.address')}').then(()=>{this.textContent='${t('about.sponsors.eth.copied')}';setTimeout(()=>{this.textContent='${t('about.sponsors.eth.copy')}'},1500)})`}
-                  title={t('about.sponsors.eth.copy')}
-                  >{t('about.sponsors.eth.copy')}</button
-                >
-              </div>
-              <p class="eth-note">{t('about.sponsors.eth.note')}</p>
             </div>
             <p
               class="sponsor-note"
@@ -493,8 +438,7 @@ const t = useTranslations(lang);
       </section>
     </section>
 
-    <!-- Protico Community Chat Bubble — sponsored by Howie Young -->
-    <ProticoScript />
+
   </div>
 
   <style>

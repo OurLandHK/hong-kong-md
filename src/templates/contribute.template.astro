@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ProticoScript from '../components/ProticoScript.astro';
+
 import i18nProgress from '../data/i18n-progress.json';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
@@ -686,8 +686,7 @@ const t = useTranslations(lang);
     </div>
   </section>
 
-  <!-- Protico Community Chat Bubble — sponsored by Howie Young -->
-  <ProticoScript />
+
 </Layout>
 
 <script is:inline>

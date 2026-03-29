@@ -290,14 +290,12 @@ export const aboutUI = {
     'about.sponsors.tier.individual.perks': 'README thank-you list',
 
     // Sponsor stories
-    'about.sponsors.justfont.story.title':
-      '✍️ Typography: The Quietest Voice of Culture',
-    'about.sponsors.justfont.story.desc':
-      "A knowledge base about Hong Kong deserves to be written with Hong Kong's own fonts. justfont sponsored the Webfont solution, making the warmth of Lanyang Mingti, the Hong Kongese flavor of Citrus Honey, and the historical weight of Rixing Song become the first impression of every article. Typography is not just a typesetting tool — it carries the way a culture views itself.",
-    'about.sponsors.protico.text.html':
-      '<strong>Protico</strong> — Providing community real-time chat functionality, enabling direct communication between readers and contributors',
+    'about.sponsors.placeholder.story.title':
+      'Placeholder Story Title',
+    'about.sponsors.placeholder.story.desc':
+      "This is a placeholder story description. Replace this with the actual story of how the sponsor contributed to HongKong.md, the impact they made, and why they chose to support the project. This section should highlight the unique value and significance of their contribution in a compelling way.",
     'about.sponsors.howie.text.html':
-      '<strong>Howie Young</strong> — Protico founder, also sponsoring as an individual',
+      '<strong>Howie Young</strong> — Individual sponsor',
 
     // Sponsor CTA
     'about.sponsors.cta.title': 'Want to Help the World Know Hong Kong?',
@@ -305,15 +303,10 @@ export const aboutUI = {
       'Whether through corporate products, professional services, or individual support, we welcome all forms of collaboration.<br />Sponsorship packages are customized based on contribution content, not defined by monetary amounts.',
     'about.sponsors.cta.contact': '📧 Contact Us About Sponsorship',
     'about.sponsors.cta.github': '💖 GitHub Sponsors',
-    'about.sponsors.eth.label':
-      'You can also support project operations via ETH donation:',
-    'about.sponsors.eth.address': 'hongkongmd.eth',
-    'about.sponsors.eth.copy': 'Copy',
-    'about.sponsors.eth.copied': 'Copied!',
     'about.sponsors.eth.note':
       'Donations fund article collection, website operations, and server costs',
     'about.sponsors.reference.note.html':
-      'Reference models: <a href="https://coscup.org" target="_blank">COSCUP</a>, <a href="https://mopcon.org" target="_blank">MOPCON</a>, <a href="https://sitcon.org" target="_blank">SITCON</a>, <a href="https://g0v.tw" target="_blank">g0v</a> and other Hong Kong tech community sponsorship models',
+      'Reference models: <a href="https://g0v.tw" target="_blank">g0v</a> and other tech community sponsorship models',
   },
   'zh-HK': {
     // Meta
@@ -584,13 +577,11 @@ export const aboutUI = {
     'about.sponsors.tier.individual.perks': 'README 感謝名單',
 
     // Sponsor stories
-    'about.sponsors.justfont.story.title': '✍️ 字體，是文化最安靜的聲音',
-    'about.sponsors.justfont.story.desc':
-      '一個關於香港的知識庫，值得用香港的字體來書寫。justfont 贊助了 Webfont 方案，讓蘭陽明體的溫潤、柑仔蜜的台味、日星宋體的歷史重量，成為每一篇文章的第一印象。字體不只是排版工具——它承載著一個文化看待自己的方式。',
-    'about.sponsors.protico.text.html':
-      '<strong>Protico</strong> — 提供社群即時聊天功能，讓讀者與貢獻者能直接交流',
-    'about.sponsors.howie.text.html':
-      '<strong>Howie Young</strong> — Protico 創辦人，同時以個人身份贊助',
+    'about.sponsors.placeholder.story.title': 'Placeholder Story Title',
+    'about.sponsors.placeholder.story.desc':
+      'This is a placeholder story description. Replace this with the actual story of how the sponsor contributed to HongKong.md, the impact they made, and why they chose to support the project. This section should highlight the unique value and significance of their contribution in a compelling way.',
+    'about.sponsors.placeholder.text.html':
+      '<strong></strong> — 個人贊助者',
 
     // Sponsor CTA
     'about.sponsors.cta.title': '想一起讓世界認識香港？',
@@ -598,12 +589,7 @@ export const aboutUI = {
       '不論是企業產品、專業服務、還是個人支持，我們歡迎任何形式的合作。<br />贊助方案依貢獻內容客製，不以金額定義價值。',
     'about.sponsors.cta.contact': '📧 聯繫我們洽談贊助',
     'about.sponsors.cta.github': '💖 GitHub Sponsors',
-    'about.sponsors.eth.label': '也可以透過 ETH 捐款支持專案營運：',
-    'about.sponsors.eth.address': 'hongkongmd.eth',
-    'about.sponsors.eth.copy': '複製',
-    'about.sponsors.eth.copied': '已複製！',
-    'about.sponsors.eth.note': '捐款將用於文章蒐集、網站營運及伺服器費用',
     'about.sponsors.reference.note.html':
-      '參考案例：<a href="https://coscup.org" target="_blank">COSCUP</a>、<a href="https://mopcon.org" target="_blank">MOPCON</a>、<a href="https://sitcon.org" target="_blank">SITCON</a>、<a href="https://g0v.tw" target="_blank">g0v</a> 等香港技術社群的贊助模式',
+      '參考案例：<a href="https://g0v.tw" target="_blank">g0v</a> 等技術社群的贊助模式',
   },
 } as const;
